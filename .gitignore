@@ -10,3 +10,7 @@ Thumbs.db
 # Python
 __pycache__/
 *.pyc
+
+# Video y material fuente pesado
+*.mp4
+invierno2026/reel/

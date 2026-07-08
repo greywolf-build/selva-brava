@@ -20,20 +20,6 @@ const fotos = [
 const WHATSAPP = 'https://wa.me/59899814711';
 const MERCADOLIBRE =
   'https://www.mercadolibre.com.ar/up/MLAU2977910815?matt_tool=89488245&pdp_filters=item_id:MLA2002373762';
-
-// Fórmula declarada ante ANMAT (Res. M.S. y A.S. 155/98) — mismo orden del registro
-const ingredientes = [
-  ['Prunus Amygdalus Dulcis Oil', 'aceite de almendras'],
-  ['Zinc Oxide', 'óxido de zinc, filtro UV'],
-  ['Titanium Dioxide', 'dióxido de titanio, filtro UV'],
-  ['Theobroma Cacao', 'cacao'],
-  ['Simmondsia Chinensis Seed Oil', 'aceite de jojoba'],
-  ['Beeswax', 'cera de abeja'],
-  ['Butyrospermum Parkii Butter', 'manteca de karité'],
-  ['Cocos Nucifera Oil', 'aceite de coco'],
-  ['Theobroma Cacao Seed Butter', 'manteca de cacao'],
-  ['Curcuma Longa Root Powder', 'cúrcuma'],
-];
 ---
 
 <section id="producto" class="bg-salvia-100 py-24 md:py-32">
@@ -114,17 +100,13 @@ const ingredientes = [
 
       <!-- Ingredientes -->
       <div class="reveal reveal-delay-2 mt-10 border-t border-niebla pt-6">
-        <p class="eyebrow mb-4">Ingredientes — todos, no un resumen</p>
-        <ul class="grid gap-x-8 gap-y-2 font-mono text-[0.8rem] text-slate-700 sm:grid-cols-2">
-          {
-            ingredientes.map(([inci, comun]) => (
-              <li class="flex justify-between gap-3 border-b border-niebla/70 pb-2">
-                <span>{inci}</span>
-                <span class="text-slate-400">{comun}</span>
-              </li>
-            ))
-          }
-        </ul>
+        <p class="eyebrow mb-3">Ingredientes</p>
+        <p class="font-display text-2xl font-semibold uppercase tracking-display text-bosque-700 md:text-3xl">
+          A base de aceites tropicales, raíces y minerales
+        </p>
+        <p class="mt-2 font-mono text-xs uppercase tracking-eyebrow text-slate">
+          100% natural
+        </p>
         <p class="mt-4 font-mono text-[0.68rem] leading-relaxed text-slate-400">
           Ensayos UVA · UVB · fototoxicidad · irritación dérmica realizados en laboratorio.
         </p>

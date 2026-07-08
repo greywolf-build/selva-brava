@@ -106,7 +106,7 @@ CAROUSELS = [
   {"bg": C["carbon"], "fg": C["crema"], "accent": C["salvia"], "blocks": [
     ("eyebrow", "Selva Brava"), ("gap", 50),
     ("title", "Pensá por\nvos mismo.", 110), ("gap", 50),
-    ("body", "Leé la etiqueta de tu protector. Toda la nuestra está en nuestro perfil — fórmula completa, con porcentajes.", 40, 760),
+    ("body", "Leé la etiqueta de tu protector. Toda la nuestra está en nuestro perfil — todos los ingredientes, sin resúmenes.", 40, 760),
     ("gap", 40), ("mono", ["@SELVA.BRAVA"], 30),
   ]},
 ]},
@@ -125,14 +125,14 @@ CAROUSELS = [
   ]},
   {"bg": C["hueso"], "fg": C["bosque700"], "accent": C["terra"], "blocks": [
     ("eyebrow", "En la fórmula"), ("gap", 60),
-    ("mono", ["Cúrcuma ........... 1,85%", "", "FUNCIÓN: ACONDICIONADOR", "DECLARADA ANTE ANMAT"], 32),
+    ("mono", ["CURCUMA LONGA ROOT POWDER", "", "FUNCIÓN: ACONDICIONADOR", "DECLARADA ANTE ANMAT"], 32),
     ("gap", 50),
-    ("body", "Cada ingrediente está declarado con su porcentaje. Sin fórmulas secretas.", 40, 740),
+    ("body", "Cada ingrediente está declarado ante ANMAT y cumple una función. Nada de relleno.", 40, 740),
   ]},
   {"bg": C["carbon"], "fg": C["crema"], "accent": C["salvia"], "blocks": [
     ("eyebrow", "La fórmula completa"), ("gap", 50),
     ("title", "10 ingredientes.\nNada más.", 96), ("gap", 50),
-    ("body", "Está entera en nuestra destacada CIENCIA — con porcentajes y ensayos de laboratorio.", 40, 740),
+    ("body", "Está entera en nuestra destacada CIENCIA — con ensayos de laboratorio.", 40, 740),
     ("gap", 40), ("mono", ["@SELVA.BRAVA"], 30),
   ]},
 ]},

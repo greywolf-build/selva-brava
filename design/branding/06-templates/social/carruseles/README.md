@@ -11,7 +11,7 @@ slide), "DESLIZÁ" solo en el cover.
 | Template | Slides | Arco narrativo | Pilar |
 |---|---|---|---|
 | `01-mito-real/` | 5 | Hook (pregunta) → mito → real → dato → cierre "pensá por vos mismo" | Educación honesta |
-| `02-ingrediente/` | 4 | Cover foto → qué hace → % en fórmula ANMAT → CTA destacada CIENCIA | Ciencia / apothecary |
+| `02-ingrediente/` | 4 | Cover foto → qué hace → declarado ante ANMAT → CTA destacada CIENCIA | Ciencia / apothecary |
 | `03-producto/` | 5 | Hook producto → protección → resistencia → multifunción → CTA compra | Producto |
 | `04-manifiesto/` | 4 | Serie de quotes (carbón) → cierre en bosque con @ | Filosofía |
 

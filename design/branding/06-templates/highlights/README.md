@@ -5,6 +5,12 @@ Sistema unificado de 8 portadas 1080×1080 para las historias destacadas de
 MAYÚSCULAS), hairlines al 30%, textura de papel + film grain sutil y vignette
 suave. Todos los elementos dentro del círculo seguro de 900px.
 
+**Isotipo integrado:** cada tapa lleva el isotipo (globo + anillo EARTH
+FRIENDLY) como marca de agua tono-sobre-tono (30% del color del texto),
+a 1000px de diámetro — el anillo enmarca justo el recorte circular de IG y
+las tapas se leen como sellos. Ajustes: `ISOTIPO_D` / `ISOTIPO_ALPHA` en el
+script.
+
 ## Covers generados
 
 | # | Archivo | Fondo | Texto |
@@ -61,7 +67,7 @@ python3 generate_highlights.py producto   # uno solo (por nombre)
 | `producto/` | 5 | Portada · qué es · ingredientes (INCI real) · modo de uso · comprar |
 | `invierno/` | 3 | Sol en altura · aplicable bajo cero · shops en cerros (B2B) |
 | `historias/` | 2 | Portada · invitación a etiquetar (el resto se llena con UGC real) |
-| `ciencia/` | 4 | Solo evidencia · fórmula ANMAT con % · ensayos · registro |
+| `ciencia/` | 4 | Solo evidencia · ingredientes declarados ANMAT · ensayos · registro |
 | `comprar/` | 3 | Canales · WhatsApp sin bots · mayorista |
 | `comunidad/` | 2 | Vida consciente · etiquetá @selva.brava |
 

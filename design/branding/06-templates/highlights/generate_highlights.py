@@ -106,10 +106,38 @@ def vignette(img, opacity=0.07):
     return Image.composite(img, black, inv.point(lambda p: 255 - p))
 
 
+ISOTIPO_SVG = os.path.join(ROOT, "branding", "01-logo", "isotipo",
+                           "variantes", "isotipo_original.svg")
+ISOTIPO_D = 1000       # diámetro: enmarca el recorte circular de IG (1080)
+ISOTIPO_ALPHA = 0.30   # tono sobre tono, marca de agua
+
+
+def isotipo_layer(fg_hex, size=ISOTIPO_D):
+    """Isotipo recoloreado al color del texto, como marca de agua."""
+    import subprocess, tempfile
+    svg = open(ISOTIPO_SVG).read()
+    svg = svg.replace("#687978", fg_hex).replace("#BBC6AA", fg_hex)
+    with tempfile.NamedTemporaryFile("w", suffix=".svg", delete=False) as f:
+        f.write(svg); tmp = f.name
+    png = tmp + ".png"
+    subprocess.run(["rsvg-convert", "-w", str(size), "-h", str(size), tmp, "-o", png],
+                   check=True)
+    im = Image.open(png).convert("RGBA")
+    a = im.getchannel("A").point(lambda p: int(p * ISOTIPO_ALPHA))
+    im.putalpha(a)
+    os.unlink(tmp); os.unlink(png)
+    return im
+
+
 def create_cover(cfg):
     bg, fg = hex_rgb(cfg["bg"]), hex_rgb(cfg["fg"])
     img = Image.new("RGB", (CANVAS, CANVAS), bg)
     img = paper_texture(img)
+    # isotipo centrado — su anillo queda justo dentro del círculo visible
+    iso = isotipo_layer(cfg["fg"])
+    img = img.convert("RGBA")
+    img.alpha_composite(iso, ((CANVAS - ISOTIPO_D) // 2, (CANVAS - ISOTIPO_D) // 2))
+    img = img.convert("RGB")
 
     # capa RGBA para texto + hairlines (las líneas llevan alpha)
     layer = Image.new("RGBA", (CANVAS, CANVAS), (0, 0, 0, 0))

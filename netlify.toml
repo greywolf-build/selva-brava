@@ -1,0 +1,8 @@
+# El proyecto Astro vive en la subcarpeta web/
+[build]
+  base = "web"           # Netlify entra a web/ antes de compilar
+  command = "npm run build"
+  publish = "dist"       # relativo a base → web/dist
+
+[build.environment]
+  NODE_VERSION = "20"    # Astro 4 requiere Node 18.20+/20+/22+

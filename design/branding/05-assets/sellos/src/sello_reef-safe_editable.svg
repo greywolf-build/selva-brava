@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" width="1024" height="1024">
+  <defs>
+    <path id="arcTop" d="M 71 256 A 185 185 0 0 1 441 256"/>
+    <path id="arcBot" d="M 46 256 A 210 210 0 0 0 466 256"/>
+  </defs>
+  <!-- anillos -->
+  <circle cx="256" cy="256" r="244" fill="none" stroke="{c}" stroke-width="7"/>
+  <circle cx="256" cy="256" r="232" fill="none" stroke="{c}" stroke-width="2"/>
+  <circle cx="256" cy="256" r="172" fill="none" stroke="{c}" stroke-width="2"/>
+  <!-- separadores (rombos 9:00 y 3:00) -->
+  <rect x="76" y="248" width="16" height="16" transform="rotate(45 84 256)" fill="{c}"/>
+  <rect x="420" y="248" width="16" height="16" transform="rotate(45 428 256)" fill="{c}"/>
+  <!-- texto superior -->
+  <text font-family="Barlow Condensed SemiBold" font-size="46" letter-spacing="10" fill="{c}">
+    <textPath xlink:href="#arcTop" startOffset="50%" text-anchor="middle">REEF SAFE</textPath>
+  </text>
+  <!-- texto inferior -->
+  <text font-family="Barlow Condensed SemiBold" font-size="34" letter-spacing="8" fill="{c}">
+    <textPath xlink:href="#arcBot" startOffset="50%" text-anchor="middle">OCEAN FRIENDLY</textPath>
+  </text>
+
+  <g transform="translate(147,147) scale(3.4)" fill="none" stroke="{c}" stroke-width="3" stroke-linecap="round">
+    <path d="M8 30 C16 20 24 20 30 28 C36 36 46 34 54 24"/>
+    <path d="M8 42 C16 32 24 32 30 40 C36 48 46 46 54 36"/>
+  </g>
+</svg>

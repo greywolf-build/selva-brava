@@ -1,0 +1,51 @@
+---
+import { Image } from 'astro:assets';
+import historiaImg from '../assets/images/historia.webp';
+---
+
+<section id="historia" class="bg-terracota-300 py-24 md:py-32">
+  <div class="mx-auto grid max-w-site items-center gap-12 px-6 md:grid-cols-2 md:gap-16 md:px-10">
+    <div>
+      <p class="eyebrow reveal mb-4">La historia</p>
+      <h2 class="h-display reveal text-4xl text-carbon md:text-5xl">
+        Diez años dando<br />el ejemplo
+      </h2>
+
+      <div class="mt-8 space-y-5 text-[1.05rem] leading-relaxed text-slate-800">
+        <p class="reveal">
+          Selva Brava nace de una pregunta simple: ¿por qué aceptamos lo que aceptamos?
+          ¿Por qué usamos sobre la piel cosas que no elegiríamos poner en el cuerpo?
+          De esa pregunta —y de mucha montaña, mar y sentido común— salió lo que somos.
+        </p>
+        <p class="reveal reveal-delay-1">
+          Hace diez años que elaboramos protectores solares 100% orgánicos entre Argentina
+          y Uruguay. Sin químicos sintéticos. Sin envoltorios plásticos. Sin promesas que
+          no podamos sostener con evidencia.
+        </p>
+        <p class="reveal reveal-delay-2">
+          La cosmética natural es nuestro primer terreno de expresión: donde ponemos en
+          práctica lo que creemos. Producción artesanal, ingredientes que se pueden leer
+          y entender, y un producto pensado para condiciones reales — altura, nieve, sal,
+          exposición prolongada.
+        </p>
+        <p class="reveal reveal-delay-2">
+          No corremos detrás de tendencias. Creemos que una empresa se define tanto por
+          lo que rechaza como por lo que crea. Y elegimos crear con criterio propio.
+        </p>
+      </div>
+    </div>
+
+    <figure class="reveal reveal-delay-1">
+      <Image
+        src={historiaImg}
+        alt="Cúrcuma, cacao, manteca de karité y yuyos sobre lino crudo"
+        class="w-full rounded-sm object-cover"
+        widths={[600, 1200]}
+        sizes="(min-width: 768px) 50vw, 100vw"
+      />
+      <figcaption class="eyebrow mt-3 !text-slate-400">
+        Cúrcuma, cacao, karité — la materia prima, tal cual es
+      </figcaption>
+    </figure>
+  </div>
+</section>

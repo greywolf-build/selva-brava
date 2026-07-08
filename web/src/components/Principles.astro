@@ -1,0 +1,65 @@
+---
+const principios = [
+  {
+    n: 'Simplicidad',
+    t: 'Pocos ingredientes, los necesarios. Si no suma, no entra.',
+  },
+  {
+    n: 'Multifunción',
+    t: 'Un producto que sirve en la ciudad, en el cerro y en el mar. Por diseño.',
+  },
+  {
+    n: 'Honestidad',
+    t: 'Si algo no sirve para algo, se dice. Si algo falla, se admite.',
+  },
+  {
+    n: 'Responsabilidad',
+    t: 'Nos hacemos cargo de todo el ciclo: producto, packaging, envío.',
+  },
+  {
+    n: 'Ética',
+    t: 'Ingredientes de origen ético, trazables, sin explotación.',
+  },
+  {
+    n: 'Ecología',
+    t: 'Cero plástico. Reef safe. La naturaleza es socio, no recurso.',
+  },
+  {
+    n: 'Diseño consciente',
+    t: 'Cada decisión tiene un porqué. Nada está puesto para aparentar.',
+  },
+  {
+    n: 'Directo al grano',
+    t: 'Sin adornos, sin promesas infladas. Lo que ves es lo que hay.',
+  },
+  {
+    n: 'Amor',
+    t: 'Por la naturaleza, los animales y las personas. En ese orden llegamos acá.',
+  },
+];
+---
+
+<section id="principios" class="bg-crema py-24 md:py-32">
+  <div class="mx-auto max-w-site px-6 md:px-10">
+    <p class="eyebrow reveal mb-4">Principios</p>
+    <h2 class="h-display reveal max-w-xl text-4xl text-carbon md:text-5xl">
+      Lo que nos guía
+    </h2>
+
+    <div class="mt-14 grid gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        principios.map((p, i) => (
+          <div class={`reveal border-t-2 border-carbon pt-5 ${i % 3 === 1 ? 'reveal-delay-1' : i % 3 === 2 ? 'reveal-delay-2' : ''}`}>
+            <span class="font-mono text-[0.62rem] uppercase tracking-eyebrow text-terracota">
+              {String(i + 1).padStart(2, '0')}
+            </span>
+            <h3 class="mt-2 font-display text-2xl font-semibold uppercase tracking-display text-bosque-700">
+              {p.n}
+            </h3>
+            <p class="mt-2 text-[0.95rem] leading-relaxed text-slate-800">{p.t}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

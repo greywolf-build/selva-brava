@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <g id="sprig" fill="none" stroke="#DDE0DA" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M32 58 C32 40 32 26 32 10"/>
+      <path d="M32 22 C24 20 18 14 16 6 C25 7 31 13 32 22 Z"/>
+      <path d="M32 38 C40 36 46 30 48 22 C39 23 33 29 32 38 Z"/>
+    </g>
+    <g id="leafm" fill="none" stroke="#DDE0DA" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M32 12 C42 21 44 37 32 50 C20 37 22 21 32 12 Z"/>
+      <path d="M32 18 L32 44"/>
+    </g>
+    <pattern id="tile" width="160" height="160" patternUnits="userSpaceOnUse">
+      <use href="#sprig"  x="8"   y="6"   transform="rotate(18 40 38)"/>
+      <use href="#leafm"  x="88"  y="14"  transform="rotate(-24 120 45)"/>
+      <use href="#sprig"  x="86"  y="92"  transform="rotate(-160 118 124)"/>
+      <use href="#leafm"  x="6"   y="96"  transform="rotate(150 38 127)"/>
+    </pattern>
+  </defs>
+  <rect width="512" height="512" fill="url(#tile)"/>
+</svg>

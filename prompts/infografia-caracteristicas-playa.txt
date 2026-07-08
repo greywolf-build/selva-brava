@@ -1,0 +1,62 @@
+PROMPT — Infografía "Características" sobre foto PLAYA
+Selva Brava · Sunscreen SPF 60
+Uso: image-to-image. Pasar DOS referencias: (1) foto del producto en la playa
+como imagen base, (2) etiqueta/wordmark para que no invente el logo.
+Aspect ratio: 4:5 (1080x1350).
+========================================================================
+
+Design an editorial product infographic using the attached photo as the base
+image: a Selva Brava aluminum sunscreen tin resting on beach sand, sea out of
+focus in the background. Keep the product photo natural and unretouched —
+muted colors, cool coastal light, film grain, no HDR, no oversaturation.
+Color mood: teal-tinted shadows, soft golden highlights, desaturated blues
+and greens (never neon, never postcard-turquoise).
+
+LAYOUT: vertical 4:5 composition. The beach photo occupies the full canvas
+with a soft warm off-white panel (#FAF8F1, slightly translucent, paper
+texture) covering the left side or lower two-thirds, where the feature list
+sits. The tin must remain fully visible and legible — never covered by text.
+
+HEADER: the hand-lettered "SELVA BRAVA" wordmark (from the attached label
+reference, keep it EXACT) in forest green #4C6759, followed by the title
+"CARACTERÍSTICAS" in bold condensed uppercase sans-serif with wide
+letter-spacing, charcoal #1E2523.
+
+FEATURE LIST — render this EXACT Spanish text, one line each, no rewording:
+- COLOR BEIGE A TRAVÉS DE INFUSIÓN CON CÚRCUMA ORGÁNICA
+- PROPIEDADES REGENERADORAS: MANTECA DE KARITÉ Y CACAO ORGÁNICAS
+- SÚPER RESISTENTE AL AGUA
+- REEF SAFE: NO DAÑA CORALES NI VIDA MARINA
+- HIPERCONCENTRADO: APLICACIONES MÍNIMAS
+- HECHO CON MATERIAS PRIMAS ORGÁNICAS
+- FPS 60 · UVA + UVB
+
+Each feature preceded by a small minimal line icon (thin stroke, rounded
+caps, botanical-outdoor style: turmeric root, seeds/leaf, water drop, wave,
+atom, coconut, shield) drawn in a single color — sage green #A9B59D or slate
+#687978 — inside a small circle. NO filled colorful icons, NO emoji.
+
+FOOTER: small technical line in monospace font, slate gray:
+"LATA 20 GRS · Ø 5 CM · HABILITADO POR ANMAT". Small "5 cm" measurement mark
+with thin bracket lines next to the tin.
+
+STYLE RULES (brand manual): warm off-white/bone and cream backgrounds only —
+never pure white; charcoal #1E2523 for text — never pure black; accents
+limited to forest green #4C6759 and sage #A9B59D; subtle film grain over the
+whole piece; generous whitespace; raw premium apothecary-outdoor mood; flat
+editorial design, no drop shadows, no gradients, no glossy effects.
+
+NEGATIVE: pure white background, pure black text, neon or saturated colors,
+postcard-turquoise water, colorful filled icons, emoji, HDR, plastic 3D look,
+decorative tropical leaves, palm tree clichés, extra logos, watermarks,
+distorted or invented label text, English text in the feature list.
+
+========================================================================
+NOTAS:
+- Diferencias vs. versión nieve: se quitó "APLICABLE EN TEMPERATURAS BAJO
+  CERO" y se sumó "REEF SAFE" (más relevante en contexto mar) + icono de ola.
+- Si el texto sale con errores tipográficos, generar la imagen SIN textos
+  ("leave empty space for text") y tipografiar después con Barlow Condensed +
+  Space Mono (fuentes en design/branding/03-typography/fonts/).
+- Color grading final: aplicar preset "02 Selva Brava - Agua.xmp"
+  (foto_producto/Selva-Brava-Presets.zip).

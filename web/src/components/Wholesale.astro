@@ -1,0 +1,40 @@
+---
+import { Image } from 'astro:assets';
+import mayoristaImg from '../assets/images/mayorista-surf.webp';
+
+const WHATSAPP_B2B =
+  'https://wa.me/59899814711?text=' +
+  encodeURIComponent('Hola! Me interesa distribuir Selva Brava en mi local.');
+---
+
+<section id="mayorista" class="bg-terracota-100 py-20 md:py-28">
+  <div class="mx-auto max-w-site px-6 md:px-10">
+    <div class="grid items-center gap-10 md:grid-cols-2 md:gap-16">
+      <figure class="reveal order-last overflow-hidden rounded-sm md:order-first">
+        <Image
+          src={mayoristaImg}
+          alt="Surfista aplicándose Selva Brava en la playa, junto a su tabla"
+          class="w-full object-cover"
+          widths={[600, 1200]}
+          sizes="(min-width: 768px) 45vw, 90vw"
+        />
+      </figure>
+      <div>
+        <p class="eyebrow reveal mb-4">Distribución mayorista</p>
+        <h2 class="h-display reveal max-w-xl text-3xl text-carbon md:text-4xl">
+          ¿Tenés un local, shop o distribuidora?
+        </h2>
+        <p class="reveal reveal-delay-1 mt-5 max-w-2xl text-[1.02rem] leading-relaxed text-slate-800">
+          Trabajamos con shops de wellness, tiendas outdoor, locales en cerros de ski y
+          boutiques conscientes de Argentina y Uruguay. Condiciones claras, sin letra
+          chica. Escribinos y lo conversamos directo.
+        </p>
+        <div class="reveal reveal-delay-2 mt-8">
+          <a href={WHATSAPP_B2B} class="btn-primary whitespace-nowrap" target="_blank" rel="noopener">
+            Consultá por distribución
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

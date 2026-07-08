@@ -1,0 +1,676 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Selva Brava — Manual de Marca</title>
+<link rel="icon" href="../01-logo/favicon/favicon_32.png">
+<!--
+  MANUAL DE MARCA — documento paginado A4.
+  Para exportar: Imprimir → Guardar como PDF
+  · Tamaño: A4 · Márgenes: Ninguno · Gráficos de fondo: SÍ
+-->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&family=Caveat:wght@600;700&family=Space+Mono:wght@400;700&display=swap');
+
+:root{
+  --hueso:#FAF8F1; --crema:#F6F4EC; --crema2:#EEEBDF; --niebla:#DDE0DA;
+  --bosque:#4C6759; --bosque7:#394B42; --bosque9:#242E2B;
+  --slate:#687978; --carbon:#1E2523;
+  --salvia:#A9B59D; --salviaC:#C3CAB8; --terra:#B97E6B; --arcilla:#CEA798;
+  --ink:#242E2B;
+  --line:rgba(30,37,35,.16); --lineD:rgba(250,248,241,.2);
+  --disp:"Barlow Condensed","Barlow",Arial,sans-serif;
+  --body:"Barlow",Helvetica,Arial,sans-serif;
+  --script:"Caveat",cursive;
+  --mono:"Space Mono",ui-monospace,Menlo,monospace;
+}
+*{box-sizing:border-box}
+body{margin:0;background:#D8D6CD;font-family:var(--body);color:var(--ink);line-height:1.55;
+  -webkit-font-smoothing:antialiased;print-color-adjust:exact;-webkit-print-color-adjust:exact}
+img{max-width:100%;display:block}
+
+/* ── Página A4 ── */
+.page{width:210mm;min-height:296mm;margin:10mm auto;background:var(--hueso);position:relative;
+  padding:16mm 16mm 20mm;overflow:hidden;box-shadow:0 6px 30px rgba(30,37,35,.25);
+  display:flex;flex-direction:column}
+.page.dark{background:var(--carbon);color:var(--hueso)}
+.page.forest{background:var(--bosque9);color:var(--hueso)}
+@page{size:A4;margin:0}
+@media print{
+  body{background:none}
+  .page{margin:0;box-shadow:none;page-break-after:always;min-height:297mm}
+  .page:last-child{page-break-after:auto}
+}
+
+/* ── Cabecera / pie de página ── */
+.ph{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--line);
+  padding-bottom:4mm;margin-bottom:9mm}
+.dark .ph,.forest .ph{border-color:var(--lineD)}
+.ph .n{font-family:var(--disp);font-weight:700;font-size:13pt;color:var(--terra);letter-spacing:.04em}
+.dark .ph .n,.forest .ph .n{color:var(--salvia)}
+.ph .t{font-family:var(--mono);font-size:6.4pt;letter-spacing:.24em;text-transform:uppercase;color:var(--slate)}
+.dark .ph .t,.forest .ph .t{color:var(--salvia)}
+.pf{position:absolute;left:16mm;right:16mm;bottom:8mm;display:flex;justify-content:space-between;
+  font-family:var(--mono);font-size:6pt;letter-spacing:.18em;text-transform:uppercase;color:var(--slate)}
+.dark .pf,.forest .pf{color:#7d9384}
+
+/* ── Tipografía editorial ── */
+h2{font-family:var(--disp);font-weight:700;text-transform:uppercase;line-height:.94;letter-spacing:.005em;
+  font-size:30pt;margin:0 0 6mm;max-width:150mm}
+.lead{font-size:10.2pt;color:#41504a;max-width:125mm;margin:0 0 9mm}
+.dark .lead,.forest .lead{color:#c3ccc0}
+.mono-l{font-family:var(--mono);font-size:6.4pt;letter-spacing:.22em;text-transform:uppercase}
+.sub{font-family:var(--mono);font-size:6.4pt;letter-spacing:.2em;text-transform:uppercase;color:var(--slate);
+  display:flex;align-items:center;gap:5mm;margin:8mm 0 4mm}
+.sub::after{content:"";flex:1;height:1px;background:var(--line)}
+.dark .sub{color:var(--salvia)}.dark .sub::after{background:var(--lineD)}
+.forest .sub{color:var(--salvia)}.forest .sub::after{background:var(--lineD)}
+.fk{font-family:var(--mono);font-size:6pt;letter-spacing:.18em;text-transform:uppercase;color:var(--terra);display:block;margin-bottom:2.5mm}
+.dark .fk,.forest .fk{color:var(--salvia)}
+
+/* ── PORTADA ── */
+.cover{justify-content:space-between;padding:20mm 16mm}
+.cover .top{display:flex;justify-content:space-between;align-items:baseline}
+.cover h1{font-family:var(--disp);font-weight:700;text-transform:uppercase;line-height:.88;letter-spacing:-.005em;
+  font-size:64pt;margin:0}
+.cover h1 .ol{color:transparent;-webkit-text-stroke:1.2pt var(--hueso)}
+.cover .mark{width:120mm;margin:14mm 0 0}
+.cover .bot{display:flex;justify-content:space-between;align-items:flex-end;gap:10mm}
+.cover .bot p{margin:0;max-width:95mm;font-size:9.5pt;color:#c9d2c6}
+.cover .badge-c{position:absolute;top:-30mm;right:-30mm;width:110mm;opacity:.08}
+.cover .strip{display:flex;flex-wrap:wrap;gap:2mm 6mm;border-top:1px solid var(--lineD);padding-top:5mm;margin-top:8mm}
+.cover .strip span{font-family:var(--disp);font-weight:600;text-transform:uppercase;letter-spacing:.18em;font-size:7.5pt;color:var(--salviaC)}
+.cover .strip span:not(:last-child)::after{content:"◆";margin-left:6mm;color:var(--terra);font-size:5pt;vertical-align:1pt}
+
+/* ── ÍNDICE ── */
+.toc ol{list-style:none;margin:0;padding:0;counter-reset:c}
+.toc li{counter-increment:c;border-bottom:1px solid var(--line)}
+.toc .row{display:flex;align-items:baseline;gap:6mm;padding:4.2mm 1mm}
+.toc .row::before{content:counter(c,decimal-leading-zero);font-family:var(--mono);font-size:7.5pt;color:var(--terra)}
+.toc .tt{font-family:var(--disp);font-weight:600;text-transform:uppercase;letter-spacing:.03em;font-size:15pt}
+.toc .ss{margin-left:auto;font-family:var(--mono);font-size:6.2pt;letter-spacing:.1em;color:var(--slate);text-transform:uppercase}
+
+/* ── COMPONENTES ── */
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:7mm}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:5mm}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:4mm}
+
+.vm{border-top:1.6pt solid var(--carbon);padding-top:4mm}
+.vm h3{font-family:var(--disp);font-weight:700;text-transform:uppercase;font-size:14pt;line-height:1;margin:0 0 3mm}
+.vm p{margin:0 0 2.5mm;font-size:9pt;color:#41504a}
+.statement{margin:9mm 0 0;padding:8mm 6mm;border-top:1px solid var(--line);border-bottom:1px solid var(--line);text-align:center}
+.statement .big{font-family:var(--disp);font-weight:700;text-transform:uppercase;line-height:1.04;font-size:17pt;max-width:150mm;margin:0 auto}
+.statement .big em{font-style:normal;color:var(--bosque)}
+.chips{display:flex;flex-wrap:wrap;gap:2.4mm;margin-top:6mm}
+.chips span{font-family:var(--disp);font-weight:600;text-transform:uppercase;letter-spacing:.06em;font-size:7.5pt;
+  border:.9pt solid var(--carbon);padding:1.8mm 4.5mm;border-radius:12mm}
+.fact{border-top:1.4pt solid var(--carbon);padding-top:3mm}
+.fact h4{font-family:var(--disp);font-weight:600;text-transform:uppercase;font-size:10.5pt;margin:0 0 1.5mm}
+.fact p{margin:0;font-size:8pt;color:#41504a}
+
+/* voz */
+.wl{font-family:var(--mono);font-size:6.4pt;letter-spacing:.2em;text-transform:uppercase;margin:0 0 3.5mm}
+.si .wl{color:var(--bosque)}.no .wl{color:var(--terra)}
+.wchips{display:flex;flex-wrap:wrap;gap:1.8mm}
+.wchips span{font-size:8pt;padding:1.2mm 3.6mm;border-radius:8mm;border:.8pt solid;line-height:1.3}
+.si .wchips span{color:var(--bosque7);border-color:rgba(76,103,89,.5)}
+.no .wchips span{color:#96604e;border-color:rgba(185,126,107,.5);text-decoration:line-through;text-decoration-color:rgba(185,126,107,.6)}
+.regla-v{margin:8mm 0;text-align:center;padding:7mm 8mm;background:var(--bosque);color:var(--hueso);border-radius:1.5mm}
+.regla-v p{font-family:var(--disp);font-weight:700;text-transform:uppercase;line-height:1.06;font-size:15pt;margin:0}
+.regla-v em{font-style:normal;color:var(--salviaC)}
+.copy{border-left:1.6pt solid var(--salvia);padding:1mm 0 1mm 4.5mm}
+.copy p{margin:0;font-size:8.6pt;line-height:1.5;color:#39473f}
+
+/* logo */
+.stage{border-radius:1mm;display:flex;align-items:center;justify-content:center;min-height:44mm;padding:8mm;position:relative}
+.stage img{width:70%}
+.stage .tg{position:absolute;left:3.5mm;bottom:2.5mm;font-family:var(--mono);font-size:5.6pt;letter-spacing:.1em;text-transform:uppercase;opacity:.75}
+.bg-crema2{background:var(--crema2);border:.8pt solid var(--line)}
+.bg-crema{background:var(--crema);border:.8pt solid var(--line)}
+.bg-bosque{background:var(--bosque);color:var(--crema)}
+.bg-carbonb{background:var(--carbon);color:var(--crema)}
+.specs{display:grid;grid-template-columns:repeat(4,1fr);gap:.5mm;background:var(--line);border:.8pt solid var(--line);margin-top:6mm}
+.specs>div{background:var(--hueso);padding:4mm}
+.specs p{margin:0;font-size:7.8pt;color:#41504a}
+.specs code{font-family:var(--mono);font-size:7pt;background:var(--crema2);padding:.3mm 1.4mm;border-radius:.8mm}
+
+/* color */
+.swrow{display:grid;grid-template-columns:repeat(7,1fr);gap:2.6mm}
+.swrow.a3{grid-template-columns:repeat(3,1fr)}
+.sw{border:.8pt solid var(--line);border-radius:1mm;overflow:hidden;background:var(--hueso)}
+.sw .chip{height:17mm}
+.swrow.a3 .sw .chip{height:14mm}
+.sw .m{padding:2.4mm 2.6mm 2.8mm}
+.sw .n{font-family:var(--disp);font-weight:600;text-transform:uppercase;letter-spacing:.04em;font-size:8pt;margin:0}
+.sw .r{font-family:var(--mono);font-size:4.9pt;letter-spacing:.08em;text-transform:uppercase;color:var(--slate);margin:.8mm 0 1.6mm}
+.sw .v{font-family:var(--mono);font-size:6.4pt;color:#46554d;margin:0}
+.scales{display:grid;grid-template-columns:repeat(5,1fr);gap:2mm}
+.scale .steps{display:flex;height:10mm;border-radius:.8mm;overflow:hidden}
+.scale .steps i{flex:1}
+.scale .n{font-family:var(--mono);font-size:5.4pt;letter-spacing:.1em;text-transform:uppercase;color:var(--slate);padding-top:1.6mm;display:block}
+
+/* tipografía */
+.trow{display:grid;grid-template-columns:38mm 1fr;gap:6mm;padding:5mm 0;border-bottom:.8pt solid var(--lineD);align-items:baseline}
+.trow:last-of-type{border-bottom:0}
+.trow .lb{font-family:var(--mono);font-size:6pt;letter-spacing:.12em;text-transform:uppercase;color:var(--salvia)}
+.tp-d{font-family:var(--disp);font-weight:700;text-transform:uppercase;letter-spacing:.04em;font-size:23pt;line-height:1}
+.tp-s{font-family:var(--script);font-weight:600;font-size:22pt;color:var(--salviaC);line-height:1}
+.tp-b{font-size:11pt;color:#d7ddd3}
+.tp-m{font-family:var(--mono);font-size:9pt;color:#a9b3a6}
+.tnote{font-size:7.2pt;color:#93a090;margin:1.6mm 0 0}
+.tex{display:grid;grid-template-columns:repeat(5,1fr);gap:2.6mm}
+.tex figure{margin:0;border:.8pt solid var(--lineD);border-radius:.8mm;overflow:hidden;background:#313835}
+.tex img{aspect-ratio:4/5;object-fit:cover;object-position:top;width:100%}
+.tex figcaption{font-family:var(--mono);font-size:5pt;letter-spacing:.08em;text-transform:uppercase;color:#93a090;padding:1.6mm 2mm}
+
+/* sistema gráfico */
+.asset{border:.8pt solid var(--line);border-radius:1mm;overflow:hidden;background:var(--crema)}
+.asset .iw{padding:5mm;display:flex;align-items:center;justify-content:center;min-height:26mm}
+.asset .m{padding:3mm 4mm 4mm;border-top:.8pt solid var(--line);background:var(--hueso)}
+.asset h4{font-family:var(--disp);font-weight:600;text-transform:uppercase;font-size:9.5pt;margin:0 0 1mm}
+.asset p{margin:0;font-size:7.4pt;color:#41504a}
+.patr{display:grid;grid-template-columns:repeat(4,1fr);gap:3mm}
+.patr figure{margin:0;border:.8pt solid var(--line);border-radius:1mm;overflow:hidden}
+.patr img{aspect-ratio:1;object-fit:cover;width:100%}
+.patr figcaption{font-family:var(--mono);font-size:5.2pt;letter-spacing:.08em;text-transform:uppercase;color:var(--slate);padding:1.8mm 2.4mm;background:var(--hueso)}
+
+/* fotografía */
+.phg{display:grid;grid-template-columns:repeat(2,1fr);gap:5mm}
+.ph-c{position:relative;border-radius:1mm;overflow:hidden;aspect-ratio:16/10.5}
+.ph-c img{width:100%;height:100%;object-fit:cover}
+.ph-c .ov{position:absolute;inset:auto 0 0 0;padding:10mm 4mm 3.5mm;background:linear-gradient(transparent,rgba(30,37,35,.9))}
+.ph-c h4{font-family:var(--disp);font-weight:700;text-transform:uppercase;letter-spacing:.05em;font-size:11pt;margin:0 0 .6mm;color:var(--hueso)}
+.ph-c .u{font-size:7pt;color:#c3ccc0;margin:0 0 2mm}
+.ph-c .ch{display:flex;flex-wrap:wrap;gap:1.4mm}
+.ph-c .ch span{font-family:var(--mono);font-size:5pt;color:var(--salviaC);border:.6pt solid rgba(195,202,184,.45);padding:.5mm 1.8mm;border-radius:5mm}
+.dna{margin-top:6mm;border-top:.8pt solid var(--lineD);padding-top:4mm;display:flex;gap:6mm;align-items:baseline}
+.dna p{margin:0;font-size:8.4pt;color:#b7c1b4}
+
+/* producto */
+.pr{border:.8pt solid var(--line);border-radius:1mm;overflow:hidden;background:var(--hueso)}
+.pr .bd{height:2.4mm}
+.pr .m{padding:5mm 5mm 6mm}
+.pr img{width:30mm;margin:1mm 0 4mm}
+.pr h3{font-family:var(--disp);font-weight:700;text-transform:uppercase;font-size:13pt;margin:0}
+.pr .sp{font-family:var(--mono);font-size:5.8pt;letter-spacing:.12em;color:var(--slate);text-transform:uppercase}
+.pr p{font-size:8pt;color:#41504a;margin:2mm 0 0}
+.pr .hx{font-family:var(--mono);font-size:6pt;color:#46554d;margin-top:3mm}
+
+/* instagram */
+.igp{display:grid;grid-template-columns:74mm 1fr;gap:9mm;align-items:start}
+.phone{border:.8pt solid var(--line);border-radius:5mm;overflow:hidden;background:var(--hueso);box-shadow:0 4mm 8mm -4mm rgba(30,37,35,.4)}
+.phone .top{padding:3mm 3.5mm;display:flex;align-items:center;gap:2.6mm;border-bottom:.8pt solid var(--line)}
+.phone .av{width:8mm;height:8mm;border-radius:50%;background:var(--bosque);flex:0 0 auto;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.phone .av img{width:70%}
+.phone .h{font-size:8pt;font-weight:600;line-height:1.25}
+.phone .h small{display:block;font-weight:400;color:var(--slate);font-size:5.6pt;font-family:var(--mono)}
+.g9{display:grid;grid-template-columns:repeat(3,1fr);gap:.5mm;background:var(--line)}
+.g9 .c{aspect-ratio:1;overflow:hidden;background:var(--crema2)}
+.g9 .c img{width:100%;height:100%;object-fit:cover}
+.g9 .c.t{display:flex;align-items:center;justify-content:center;text-align:center;background:var(--bosque);color:var(--crema)}
+.g9 .c.t span{font-family:var(--disp);font-size:7pt;font-weight:700;letter-spacing:.1em;line-height:1.25;text-transform:uppercase}
+.g9 .c.sg{background:var(--salvia);color:var(--carbon)}
+.iglist{list-style:none;margin:0 0 6mm;padding:0}
+.iglist li{padding:2.4mm 0;border-bottom:.8pt solid var(--line);font-size:8.4pt;display:flex;gap:3.5mm;align-items:baseline}
+.iglist b{font-family:var(--disp);text-transform:uppercase;letter-spacing:.03em;font-weight:600;white-space:nowrap;font-size:9pt}
+.iglist span{color:#5c6a62;font-size:7.6pt}
+.fmt{display:grid;grid-template-columns:repeat(2,1fr);gap:.5mm;background:var(--line);border:.8pt solid var(--line);margin-bottom:6mm}
+.fmt>div{background:var(--hueso);padding:3mm 3.6mm}
+.fmt .v{font-family:var(--disp);font-weight:600;font-size:11pt;letter-spacing:.03em}
+.bio{border-left:1.6pt solid var(--bosque);padding:1mm 0 1mm 4.5mm;font-size:8.4pt;color:#39473f}
+
+/* web */
+.browser{border:.8pt solid var(--line);border-radius:2.4mm;overflow:hidden;background:var(--hueso);box-shadow:0 5mm 10mm -6mm rgba(30,37,35,.4)}
+.browser .bar{display:flex;align-items:center;gap:2mm;padding:2.6mm 3.5mm;background:var(--crema2);border-bottom:.8pt solid var(--line)}
+.browser .dot{width:2.6mm;height:2.6mm;border-radius:50%;background:#cbd1c9}
+.browser .url{margin-left:3mm;font-family:var(--mono);font-size:6.2pt;color:var(--slate);background:var(--hueso);padding:.8mm 3.6mm;border-radius:5mm;border:.8pt solid var(--line)}
+.wh{position:relative;min-height:74mm;display:flex;align-items:center;padding:11mm;color:var(--hueso);overflow:hidden}
+.wh img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.wh::after{content:"";position:absolute;inset:0;background:linear-gradient(88deg,rgba(30,37,35,.78) 25%,rgba(30,37,35,.15))}
+.wh .c{position:relative;z-index:2;max-width:80mm}
+.wh h3{font-family:var(--disp);font-size:19pt;line-height:.95;margin:0 0 1.6mm;font-weight:700;text-transform:uppercase}
+.wh .sc{font-family:var(--script);font-weight:600;font-size:13pt;color:var(--salviaC);margin:0 0 3mm}
+.wh p{margin:0 0 4mm;font-size:8.2pt;color:#dfe5da}
+.btn{display:inline-block;background:var(--salvia);color:var(--carbon);font-family:var(--disp);font-weight:700;font-size:8pt;letter-spacing:.12em;text-transform:uppercase;padding:2.8mm 6.5mm;border-radius:.8mm;text-decoration:none}
+.wp3{display:grid;grid-template-columns:repeat(3,1fr);gap:.5mm;background:var(--line)}
+.wp3>div{background:var(--hueso);padding:5mm}
+.wp3 .bd{height:1.6mm;border-radius:4mm;margin-bottom:3.5mm}
+.wp3 h4{font-family:var(--disp);margin:1.6mm 0;font-size:11.5pt;text-transform:uppercase;font-weight:700}
+.wp3 p{margin:0 0 3mm;font-size:7.6pt;color:#41504a}
+.wp3 .cta{font-family:var(--mono);font-size:6.2pt;color:var(--bosque)}
+.toks{display:grid;grid-template-columns:repeat(6,1fr);gap:2.4mm;margin-top:5mm}
+.tok{border:.8pt solid var(--line);border-radius:1mm;padding:2.6mm 3mm;font-family:var(--mono);font-size:6pt;background:var(--hueso)}
+.tok .b{height:6.5mm;border-radius:.8mm;margin-bottom:2mm;border:.8pt solid var(--line)}
+.tok .n{color:var(--slate)}
+.tok .v{color:#46554d}
+
+/* reglas */
+.rul h3{font-family:var(--disp);font-weight:700;font-size:16pt;letter-spacing:.06em;text-transform:uppercase;margin:0 0 2.5mm}
+.rul.si h3{color:var(--salviaC)}
+.rul.no h3{color:var(--arcilla)}
+.rul ol{list-style:none;margin:0;padding:0;counter-reset:rg}
+.rul li{counter-increment:rg;display:flex;gap:4mm;padding:2.7mm 0;border-bottom:.7pt solid var(--lineD);font-size:8.2pt;color:#c3ccc0;align-items:baseline}
+.rul li::before{content:counter(rg,decimal-leading-zero);font-family:var(--mono);font-size:6pt;color:var(--salvia);flex:0 0 auto}
+.rul.no li::before{color:var(--arcilla)}
+.rul li b{color:var(--hueso)}
+
+/* contraportada */
+.back{justify-content:space-between;padding:20mm 16mm}
+.back .mark{width:110mm}
+.back .rows{display:flex;justify-content:space-between;gap:10mm;border-top:1px solid var(--lineD);padding-top:6mm}
+.back .mono-l{color:#7d9384;line-height:2.2}
+</style>
+</head>
+<body>
+
+<!-- ═══ PORTADA ═══ -->
+<section class="page dark cover">
+  <img class="badge-c" src="../01-logo/full-badge/variantes/full-badge_hueso-reverse.svg" alt="">
+  <div class="top">
+    <span class="mono-l" style="color:var(--salvia)">Organic Sun Care · Argentina — Uruguay</span>
+    <span class="mono-l" style="color:var(--salvia)">v2.0 — Julio 2026</span>
+  </div>
+  <div>
+    <h1>Manual<br>de <span class="ol">Marca</span></h1>
+    <img class="mark" src="../01-logo/wordmark/horizontal/selva-brava_wordmark_horizontal_cream.png" alt="Selva Brava">
+  </div>
+  <div>
+    <div class="bot">
+      <p>Cosmética natural 100% orgánica, sin químicos sintéticos ni envoltorios plásticos. Cuestionamos lo establecido y pensamos por nosotros mismos — desde ahí creamos.</p>
+      <span class="mono-l" style="color:var(--salvia);white-space:nowrap">documento vivo</span>
+    </div>
+    <div class="strip">
+      <span>Earth Friendly</span><span>Reef Safe</span><span>100% Organic</span><span>Sin plástico</span><span>Cero greenwashing</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ÍNDICE ═══ -->
+<section class="page toc">
+  <div class="ph"><span class="n">Índice</span><span class="t">Selva Brava — Manual de Marca</span></div>
+  <ol>
+    <li><div class="row"><span class="tt">Fundamento</span><span class="ss">Visión · misión · principios · público</span></div></li>
+    <li><div class="row"><span class="tt">Voz</span><span class="ss">Vocabulario · seis registros</span></div></li>
+    <li><div class="row"><span class="tt">Logo</span><span class="ss">Wordmark · isotipo · full badge</span></div></li>
+    <li><div class="row"><span class="tt">Color</span><span class="ss">Neutros · acentos · escaleras</span></div></li>
+    <li><div class="row"><span class="tt">Tipografía</span><span class="ss">Barlow · Caveat · Space Mono</span></div></li>
+    <li><div class="row"><span class="tt">Sistema gráfico</span><span class="ss">Sellos · iconos · tramas · texturas</span></div></li>
+    <li><div class="row"><span class="tt">Fotografía</span><span class="ss">Dirección de arte · 4 presets</span></div></li>
+    <li><div class="row"><span class="tt">Producto</span><span class="ss">Sunscreen · Cacao Butter · Moist</span></div></li>
+    <li><div class="row"><span class="tt">Instagram</span><span class="ss">@selva.brava</span></div></li>
+    <li><div class="row"><span class="tt">Web</span><span class="ss">selvabrava.org</span></div></li>
+    <li><div class="row"><span class="tt">Reglas de oro</span><span class="ss">Siempre · nunca</span></div></li>
+  </ol>
+  <div class="pf"><span>Selva Brava — Manual de Marca v2.0</span><span>02</span></div>
+</section>
+
+<!-- ═══ 01 FUNDAMENTO ═══ -->
+<section class="page">
+  <div class="ph"><span class="n">01</span><span class="t">Fundamento</span></div>
+  <h2>Una empresa consciente que cuestiona el status quo</h2>
+  <p class="lead">Nos animamos a preguntar, a poner a prueba lo que funciona y lo que no, guiados por el sentido común y el criterio propio. La cosmética natural es nuestro primer terreno de expresión: donde ponemos en práctica lo que creemos.</p>
+  <div class="grid2">
+    <div class="vm"><span class="fk">Visión</span>
+      <h3>Desafiar lo que damos por normal</h3>
+      <p>Durante 10 años venimos elaborando protectores solares 100% orgánicos, sin químicos sintéticos ni envoltorios plásticos.</p></div>
+    <div class="vm"><span class="fk">Misión</span>
+      <h3>Ética y ecología que suman propósito</h3>
+      <p>Demostrar a nivel industrial que hacer las cosas con el corazón no le resta productividad — le suma propósito. Una empresa se define tanto por lo que rechaza como por lo que crea.</p></div>
+  </div>
+  <div class="statement">
+    <span class="fk" style="margin-bottom:4mm">Más allá del producto</span>
+    <p class="big">Despertar <em>consciencia</em>. Romper con falsas creencias. Desechar paradigmas que ya no sirven al planeta ni a las personas.</p>
+  </div>
+  <div class="chips">
+    <span>Simplicidad</span><span>Multifunción</span><span>Honestidad</span><span>Responsabilidad</span><span>Ética</span>
+    <span>Ecología</span><span>Diseño consciente</span><span>Directo al grano</span><span>Amor por la naturaleza, los animales y las personas</span>
+  </div>
+  <p class="sub">Público — 24–45 · vida consciente · poder adquisitivo medio-alto</p>
+  <div class="grid4">
+    <div class="fact"><span class="fk">Outdoor</span><h4>Movimiento real</h4><p>Snow, surf, ski. Montaña, playa, altura, exposición prolongada.</p></div>
+    <div class="fact"><span class="fk">Mind-body</span><h4>Yoguis &amp; wellness</h4><p>Disciplinas conscientes, salud y bienestar.</p></div>
+    <div class="fact"><span class="fk">General</span><h4>Conciencia ambiental</h4><p>Valoran lo natural, ético y con propósito real.</p></div>
+    <div class="fact"><span class="fk">Estética</span><h4>Raw &amp; premium</h4><p>Tierra y movimiento. Vintage-outdoor / apothecary.</p></div>
+  </div>
+  <div class="pf"><span>Selva Brava — Manual de Marca v2.0</span><span>03</span></div>
+</section>
+
+<!-- ═══ 02 VOZ ═══ -->
+<section class="page">
+  <div class="ph"><span class="n">02</span><span class="t">Tono de voz</span></div>
+  <h2>Poesía cuando toca. Precisión cuando importa.</h2>
+  <p class="lead">Consciente, directa, honesta, sin adornos. Habla desde la naturaleza y el criterio propio — no desde la autoridad ni el marketing tradicional. Español rioplatense neutro; inglés solo en naming.</p>
+  <div class="grid2">
+    <div class="si"><p class="wl">✓ — Palabras que sí usa</p>
+      <div class="wchips"><span>consciente</span><span>simple</span><span>honesto</span><span>natural</span><span>orgánico</span><span>ético</span><span>ecológico</span><span>directo</span><span>responsable</span><span>multifuncional</span><span>criterio</span><span>sentido común</span><span>cuestionar</span><span>despertar</span><span>amor</span><span>naturaleza</span><span>cuerpo</span><span>piel</span><span>tierra</span><span>movimiento</span><span>bienestar</span><span>verdad</span><span>propósito</span></div></div>
+    <div class="no"><p class="wl">✕ — Palabras que no usa</p>
+      <div class="wchips"><span>milagroso</span><span>revolucionario</span><span>único en el mercado</span><span>mejor que</span><span>anti-edad</span><span>anti-arrugas</span><span>perfecto</span><span>ideal</span><span>garantizado</span><span>fórmula secreta</span><span>innovador</span><span>disruptivo</span><span>premium (vacío)</span><span>lujo</span><span>exclusivo</span><span>best-seller</span><span>trending</span></div></div>
+  </div>
+  <div class="regla-v"><p>No vendemos con superlativos ni promesas —<br>vendemos con <em>honestidad y evidencia</em>.</p></div>
+  <p class="sub">Cómo habla la marca — seis registros</p>
+  <div class="grid3" style="row-gap:6mm">
+    <div class="copy"><span class="fk">Post educativo</span><p>El sol no es enemigo. Lo que aplicás sobre tu piel para protegerte, tal vez sí. Ingredientes simples, sin filtros químicos, sin envases plásticos.</p></div>
+    <div class="copy"><span class="fk">Post de producto</span><p>20 gramos que rinden lo que tienen que rendir. Aceite de coco, manteca de cacao, óxido de zinc. Nada más. Nada menos.</p></div>
+    <div class="copy"><span class="fk">Story de comunidad</span><p>¿Sabías que el 90% de los protectores comerciales terminan en el océano? No queremos ser parte de esa estadística.</p></div>
+    <div class="copy"><span class="fk">Reel · voz en off</span><p>"Preguntamos por qué. Por qué usamos lo que usamos. Por qué aceptamos lo que aceptamos. Selva Brava nace de esa pregunta."</p></div>
+    <div class="copy"><span class="fk">Respuesta a DM</span><p>Buenas! Sí, el Sunscreen SPF 60 sirve para uso diario y también para condiciones exigentes. Es multifuncional por diseño.</p></div>
+    <div class="copy"><span class="fk">Ficha de producto</span><p>Protector solar orgánico SPF 60. Lata 20 grs. Para uso diario, deportistas outdoor y quienes eligen productos éticos.</p></div>
+  </div>
+  <div class="pf"><span>Selva Brava — Manual de Marca v2.0</span><span>04</span></div>
+</section>
+
+<!-- ═══ 03 LOGO ═══ -->
+<section class="page">
+  <div class="ph"><span class="n">03</span><span class="t">Logotipo</span></div>
+  <h2>El wordmark hand-lettered es el corazón</h2>
+  <p class="lead">Lettering de pincel, condensado, de bordes crudos — nunca se reemplaza por una fuente. Tres piezas: <strong>wordmark</strong> (uso general), <strong>isotipo</strong> (sello secundario) y <strong>full badge</strong> (packaging y piezas hero).</p>
+  <div class="grid2">
+    <div class="stage bg-crema2"><img src="../01-logo/wordmark/horizontal/selva-brava_wordmark_horizontal_green.png" alt=""><span class="tg" style="color:var(--slate)">Horizontal — bosque / crema</span></div>
+    <div class="stage bg-bosque"><img src="../01-logo/wordmark/horizontal/selva-brava_wordmark_horizontal_cream.png" alt=""><span class="tg">Horizontal — crema / bosque</span></div>
+  </div>
+  <div class="grid3" style="margin-top:5mm">
+    <div class="stage bg-crema"><img src="../01-logo/isotipo/variantes/isotipo_original.svg" alt="" style="width:52%"><span class="tg" style="color:var(--slate)">Isotipo — 6+8 variantes</span></div>
+    <div class="stage bg-crema"><img src="../01-logo/full-badge/variantes/full-badge_original.svg" alt="" style="width:52%"><span class="tg" style="color:var(--slate)">Badge — transparente</span></div>
+    <div class="stage bg-carbonb"><img src="../01-logo/full-badge/variantes-solid/full-badge_bosque.svg" alt="" style="width:52%"><span class="tg">Badge solid — 21 variantes</span></div>
+  </div>
+  <div class="specs">
+    <div><span class="fk">Zona de seguridad</span><p>Margen ≥ altura de la "S" del wordmark. Siempre.</p></div>
+    <div><span class="fk">Tamaño mínimo</span><p><code>25 mm</code> print · <code>96 px</code> digital. Avatar chico → favicon.</p></div>
+    <div><span class="fk">Regla de variante</span><p>Fondo claro → transparente. Color, oscuro o foto → solid.</p></div>
+    <div><span class="fk">Prohibido</span><p>Rotar, deformar, recolorear fuera de paleta, sombras, degradados.</p></div>
+  </div>
+  <div class="pf"><span>Selva Brava — Manual de Marca v2.0</span><span>05</span></div>
+</section>
+
+<!-- ═══ 04 COLOR ═══ -->
+<section class="page">
+  <div class="ph"><span class="n">04</span><span class="t">Color</span></div>
+  <h2>Neutros de tierra + un acento por producto</h2>
+  <p class="lead">Nunca blanco ni negro puros: <strong>Hueso</strong> abre el rango por arriba y <strong>Carbón</strong> lo cierra por abajo. La línea se lee como familia; cada producto se distingue de un vistazo.</p>
+  <p class="sub" style="margin-top:0">Neutros de marca</p>
+  <div class="swrow">
+    <div class="sw"><div class="chip" style="background:#FAF8F1;box-shadow:inset 0 0 0 .8pt var(--line)"></div><div class="m"><p class="n">Hueso</p><p class="r">Blanco cálido</p><p class="v">#FAF8F1</p></div></div>
+    <div class="sw"><div class="chip" style="background:#F6F4EC;box-shadow:inset 0 0 0 .8pt var(--line)"></div><div class="m"><p class="n">Crema</p><p class="r">Fondo base</p><p class="v">#F6F4EC</p></div></div>
+    <div class="sw"><div class="chip" style="background:#DDE0DA"></div><div class="m"><p class="n">Niebla</p><p class="r">Tramas</p><p class="v">#DDE0DA</p></div></div>
+    <div class="sw"><div class="chip" style="background:#4C6759"></div><div class="m"><p class="n">Bosque</p><p class="r">Firma</p><p class="v">#4C6759</p></div></div>
+    <div class="sw"><div class="chip" style="background:#687978"></div><div class="m"><p class="n">Slate</p><p class="r">Tinta</p><p class="v">#687978</p></div></div>
+    <div class="sw"><div class="chip" style="background:#60716E"></div><div class="m"><p class="n">Slate osc.</p><p class="r">Profunda</p><p class="v">#60716E</p></div></div>
+    <div class="sw"><div class="chip" style="background:#1E2523"></div><div class="m"><p class="n">Carbón</p><p class="r">Negro suave</p><p class="v">#1E2523</p></div></div>
+  </div>
+  <p class="sub">Acentos de línea — color-coding por producto</p>
+  <div class="swrow a3">
+    <div class="sw"><div class="chip" style="background:#A9B59D"></div><div class="m"><p class="n">Salvia</p><p class="r">Sunscreen · SPF 60</p><p class="v">#A9B59D</p></div></div>
+    <div class="sw"><div class="chip" style="background:#B97E6B"></div><div class="m"><p class="n">Terracota</p><p class="r">Cacao Butter · SPF 20</p><p class="v">#B97E6B</p></div></div>
+    <div class="sw"><div class="chip" style="background:#C3CAB8"></div><div class="m"><p class="n">Salvia lavada</p><p class="r">Moist · SPF 20</p><p class="v">#C3CAB8</p></div></div>
+  </div>
+  <p class="sub">Escaleras tonales — 50 → 900</p>
+  <div class="scales">
+    <div class="scale"><div class="steps"><i style="background:#FAF8F1"></i><i style="background:#F6F4EC"></i><i style="background:#DDE0DA"></i><i style="background:#BEC2BD"></i><i style="background:#9CA09C"></i><i style="background:#7E827E"></i><i style="background:#5F6561"></i><i style="background:#444A48"></i><i style="background:#313835"></i><i style="background:#1E2523"></i></div><span class="n">Neutro</span></div>
+    <div class="scale"><div class="steps"><i style="background:#ECECE5"></i><i style="background:#D0D5CD"></i><i style="background:#ACB7AD"></i><i style="background:#87988D"></i><i style="background:#687E71"></i><i style="background:#4C6759"></i><i style="background:#435A4E"></i><i style="background:#394B42"></i><i style="background:#2E3B35"></i><i style="background:#242E2B"></i></div><span class="n">Bosque</span></div>
+    <div class="scale"><div class="steps"><i style="background:#EEEEE7"></i><i style="background:#D7DAD4"></i><i style="background:#B8BFBB"></i><i style="background:#9AA4A1"></i><i style="background:#7F8D8B"></i><i style="background:#687978"></i><i style="background:#596867"></i><i style="background:#495654"></i><i style="background:#374240"></i><i style="background:#28312F"></i></div><span class="n">Slate</span></div>
+    <div class="scale"><div class="steps"><i style="background:#F4F3EA"></i><i style="background:#E7E8DD"></i><i style="background:#D6DACB"></i><i style="background:#C5CCBA"></i><i style="background:#B6C0AA"></i><i style="background:#A9B59D"></i><i style="background:#8D9885"></i><i style="background:#6F796A"></i><i style="background:#4D564C"></i><i style="background:#313934"></i></div><span class="n">Salvia</span></div>
+    <div class="scale"><div class="steps"><i style="background:#F5EEE6"></i><i style="background:#EADBD1"></i><i style="background:#DDC1B5"></i><i style="background:#CFA799"></i><i style="background:#C39280"></i><i style="background:#B97E6B"></i><i style="background:#9A6C5D"></i><i style="background:#78594D"></i><i style="background:#53433B"></i><i style="background:#34312D"></i></div><span class="n">Terracota</span></div>
+  </div>
+  <div class="specs">
+    <div><span class="fk">Uso de escalera</span><p>50–200 fondos · 300–400 bordes · 500 firma · 600–700 texto · 800–900 oscuros.</p></div>
+    <div><span class="fk">Contraste</span><p>Body copy WCAG AA. Slate/Carbón sobre Hueso/Crema — y a la inversa.</p></div>
+    <div><span class="fk">Monocromo</span><p>Solo tinta profunda <code>#60716E</code>, Carbón o Hueso.</p></div>
+    <div><span class="fk">Tokens dev</span><p>JSON completo en <code>02-color/paleta.md</code>.</p></div>
+  </div>
+  <div class="pf"><span>Selva Brava — Manual de Marca v2.0</span><span>06</span></div>
+</section>
+
+<!-- ═══ 05 TIPOGRAFÍA ═══ -->
+<section class="page dark">
+  <div class="ph"><span class="n">05</span><span class="t">Tipografía</span></div>
+  <h2>El lettering manda; el sistema lo sostiene</h2>
+  <p class="lead">Superfamilia <strong style="color:var(--hueso)">Barlow</strong> como columna vertebral — señalética outdoor, ADN montaña/playa. Un script manuscrito para lo emocional, un mono para lo técnico. Todas SIL OFL.</p>
+  <div class="trow"><span class="lb">Logo — lettering</span><div>
+    <div class="tp-d" style="letter-spacing:.02em">Selva Brava</div>
+    <p class="tnote">Hand-lettering de pincel custom. Uso exclusivo del logo — nunca componer texto que lo imite.</p></div></div>
+  <div class="trow"><span class="lb">Display — Barlow Condensed</span><div>
+    <div class="tp-d">Earth Friendly Organic Skin Care</div>
+    <p class="tnote">SemiBold / Bold — MAYÚSCULAS + tracking +4…8%. Claims, H1–H2, números (SPF 60 · 20 grs.). Alterna: Anton.</p></div></div>
+  <div class="trow"><span class="lb">Acento — Caveat</span><div>
+    <div class="tp-s">naturaleza · Organics</div>
+    <p class="tnote">~600 — script de pincel, mismo gesto que el wordmark. <b style="color:var(--hueso)">Una palabra</b> emocional; nunca frases ni mayúsculas.</p></div></div>
+  <div class="trow"><span class="lb">Body — Barlow</span><div>
+    <div class="tp-b">Formulado para uso diario y exposición prolongada, con ingredientes naturales.</div>
+    <p class="tnote">Regular / Medium — interlineado 1.5–1.7. Párrafos, e-commerce, UI.</p></div></div>
+  <div class="trow"><span class="lb">Datos — Space Mono</span><div>
+    <div class="tp-m">Cera Alba (beeswax) · Cocos Nucifera · Zinc Oxide · UVA + UVB</div>
+    <p class="tnote">INCI, specs, precios, lotes, legales. Credibilidad de laboratorio.</p></div></div>
+  <p class="sub">El sistema en uso — 03-typography/examples</p>
+  <div class="tex">
+    <figure><img src="../03-typography/examples/01_web-hero.png" alt=""><figcaption>01 — Web hero</figcaption></figure>
+    <figure><img src="../03-typography/examples/02_poster-campania.png" alt=""><figcaption>02 — Poster</figcaption></figure>
+    <figure><img src="../03-typography/examples/05_packaging-label.png" alt=""><figcaption>05 — Etiqueta</figcaption></figure>
+    <figure><img src="../03-typography/examples/06_instagram-carousel.png" alt=""><figcaption>06 — Carrusel</figcaption></figure>
+    <figure><img src="../03-typography/examples/07_hangtag.png" alt=""><figcaption>07 — Hangtag</figcaption></figure>
+  </div>
+  <div class="pf"><span>Selva Brava — Manual de Marca v2.0</span><span>07</span></div>
+</section>
+
+<!-- ═══ 06 SISTEMA GRÁFICO ═══ -->
+<section class="page">
+  <div class="ph"><span class="n">06</span><span class="t">Sistema gráfico</span></div>
+  <h2>Sellos, iconos, tramas y materia</h2>
+  <p class="lead">Elementos de soporte derivados del sello original. Se recolorean solo dentro de la paleta y nunca compiten con el logo. Archivos en <code style="font-family:var(--mono);font-size:8pt">05-assets/</code>.</p>
+  <div class="asset">
+    <div class="iw"><img src="../05-assets/sellos/_preview.png" alt="Sellos"></div>
+    <div class="m"><span class="fk">05-assets/sellos — SVG vectorizado + PNG</span>
+    <h4>Cinco sellos de confianza</h4>
+    <p>REEF SAFE (olas) · 100% ORGANIC (hoja) · EARTH FRIENDLY (globo) · SPF 60 · SPF 20. En slate / bosque / hueso. Un color por aplicación; mínimo 18 mm / 64 px.</p></div>
+  </div>
+  <div class="grid2" style="margin-top:5mm">
+    <div class="asset">
+      <div class="iw"><img src="../05-assets/iconos-botanicos/_preview.png" alt="Iconos"></div>
+      <div class="m"><span class="fk">05-assets/iconos-botanicos — currentColor</span>
+      <h4>Iconos de línea</h4>
+      <p>Hoja, rama, ramita, brote, sol, montaña, ola, gota. No rellenar; no mezclar familias.</p></div>
+    </div>
+    <div class="asset">
+      <div class="iw" style="padding:0"><img src="../05-assets/texturas/papel-hueso_2048.jpg" alt="" style="height:26mm;width:100%;object-fit:cover"></div>
+      <div class="m"><span class="fk">05-assets/texturas — 2048²</span>
+      <h4>Papel y grano</h4>
+      <p>Hueso, Crema y Carbón con grano y fibras. El "blanco" y el "negro" de la marca siempre tienen materia.</p></div>
+    </div>
+  </div>
+  <p class="sub">Tramas seamless — gris niebla, siempre de fondo</p>
+  <div class="patr">
+    <figure><img src="../05-assets/patrones/_preview_trama-puntos.png" alt=""><figcaption>Puntos — la más discreta</figcaption></figure>
+    <figure><img src="../05-assets/patrones/_preview_trama-meridianos.png" alt=""><figcaption>Meridianos — eco del globo</figcaption></figure>
+    <figure><img src="../05-assets/patrones/_preview_trama-botanica.png" alt=""><figcaption>Botánica — ramitas y hojas</figcaption></figure>
+    <figure><img src="../05-assets/patrones/_preview_trama-olas.png" alt=""><figcaption>Olas — mar · reef safe</figcaption></figure>
+  </div>
+  <div class="pf"><span>Selva Brava — Manual de Marca v2.0</span><span>08</span></div>
+</section>
+
+<!-- ═══ 07 FOTOGRAFÍA ═══ -->
+<section class="page dark">
+  <div class="ph"><span class="n">07</span><span class="t">Fotografía · color grading</span></div>
+  <h2>Luz real, piel real, naturaleza real</h2>
+  <p class="lead">Producción artesanal y personas reales usando el producto — no estética hollywoodense, no HDR, no retoque plástico. Cuatro presets fijan el look (<code style="font-family:var(--mono);font-size:7.6pt;color:var(--salviaC)">Selva-Brava-Presets.zip</code>); se elige por escena.</p>
+  <div class="phg">
+    <div class="ph-c"><img src="../../../invierno2026/final.jpg" alt="">
+      <div class="ov"><h4>01 — Hora dorada</h4><p class="u">Retrato / lifestyle a contraluz, atardecer.</p>
+      <div class="ch"><span>Altas −25</span><span>Sombras verde 150</span><span>Grano 14</span></div></div></div>
+    <div class="ph-c"><img src="../../../invierno2026/carrousel/si4.png" alt="">
+      <div class="ov"><h4>02 — Agua</h4><p class="u">Playa, surf, agua, nieve — escenas frías.</p>
+      <div class="ch"><span>Temp −4</span><span>Sombras teal 200</span><span>Grano 12</span></div></div></div>
+    <div class="ph-c"><img src="../../../invierno2026/carrousel/rider.png" alt="">
+      <div class="ov"><h4>03 — Bravo</h4><p class="u">Montaña exigente, editorial crudo.</p>
+      <div class="ch"><span>Negros −18</span><span>Sat −8</span><span>Grano 22</span></div></div></div>
+    <div class="ph-c"><img src="../../../invierno2026/carrousel/hike.png" alt="">
+      <div class="ov"><h4>04 — Selva</h4><p class="u">Bosque, vegetación, producto en naturaleza.</p>
+      <div class="ch"><span>Sombras +18</span><span>Verdes −22 → salvia</span><span>Grano 16</span></div></div></div>
+  </div>
+  <div class="dna">
+    <span class="fk" style="white-space:nowrap">ADN común</span>
+    <p>Altas luces bajadas · negros cerrados · desaturación global · verdes y azules apagados (nada de neón) · split-tone teal en sombras / dorado en altas · viñeta suave · grano fílmico. <b style="color:var(--hueso)">Mantener el grano</b> — es parte del ADN raw. Un mismo preset por pieza o carrusel.</p>
+  </div>
+  <div class="pf"><span>Selva Brava — Manual de Marca v2.0</span><span>09</span></div>
+</section>
+
+<!-- ═══ 08 PRODUCTO ═══ -->
+<section class="page">
+  <div class="ph"><span class="n">08</span><span class="t">Línea de producto</span></div>
+  <h2>Un sistema, tres pieles. Cero plástico.</h2>
+  <p class="lead">Lata / tin de <strong>20 grs</strong> con etiqueta circular. El sello es compartido; el color cambia según el producto. Sin plástico en producto, packaging ni envíos — sin excepciones.</p>
+  <div class="grid3">
+    <div class="pr"><div class="bd" style="background:#A9B59D"></div><div class="m">
+      <img src="../07-references/analisis-etiquetas/sunscreen_front-1.png" alt="">
+      <h3>Sunscreen</h3><span class="sp">SPF 60 — Reef Safe</span>
+      <p>Protector solar de alta protección para uso diario y condiciones exigentes.</p>
+      <p class="hx">Acento — Salvia #A9B59D</p></div></div>
+    <div class="pr"><div class="bd" style="background:#B97E6B"></div><div class="m">
+      <img src="../07-references/analisis-etiquetas/cacao_front-1.png" alt="">
+      <h3>Cacao Butter</h3><span class="sp">SPF 20 — Labial</span>
+      <p>Labial protector para labios expuestos al sol y al frío.</p>
+      <p class="hx">Acento — Terracota #B97E6B</p></div></div>
+    <div class="pr"><div class="bd" style="background:#C3CAB8"></div><div class="m">
+      <img src="../07-references/analisis-etiquetas/Moist_front-1.png" alt="">
+      <h3>Moist</h3><span class="sp">SPF 20 — Hidrata</span>
+      <p>Protector con hidratación y regeneración diaria de la piel.</p>
+      <p class="hx">Acento — Salvia lavada #C3CAB8</p></div></div>
+  </div>
+  <p class="sub">Anatomía del sello — front</p>
+  <div class="specs" style="margin-top:0">
+    <div><span class="fk">Estructura</span><p>Anillo de texto en curva → globo → wordmark → <em>Organics</em> → sello SPF → botánica → descriptor + peso → claim.</p></div>
+    <div><span class="fk">Reverso</span><p>Properties + Ingredients (INCI en mono) + wordmark + trama sutil.</p></div>
+    <div><span class="fk">Cohesión</span><p>El badge compartido hace familia; el acento diferencia el producto.</p></div>
+    <div><span class="fk">Referencia</span><p>Etiquetas originales en <code>07-references/</code>.</p></div>
+  </div>
+  <div class="pf"><span>Selva Brava — Manual de Marca v2.0</span><span>10</span></div>
+</section>
+
+<!-- ═══ 09 INSTAGRAM ═══ -->
+<section class="page">
+  <div class="ph"><span class="n">09</span><span class="t">Instagram</span></div>
+  <h2>Un feed que se lee como una sola paleta</h2>
+  <p class="lead">El canal principal: <strong>@selva.brava</strong>. Producto ↔ lifestyle ↔ naturaleza sin romper el tono: 90% neutros, look unificado por los presets. Sin urgencia falsa, sin trends sin criterio.</p>
+  <div class="igp">
+    <div class="phone">
+      <div class="top"><span class="av"><img src="../01-logo/wordmark/vertical/selva-brava_wordmark_vertical_cream.png" alt=""></span>
+      <span class="h">selva.brava<small>Organic Sun Care · AR / UY</small></span></div>
+      <div class="g9">
+        <div class="c"><img src="../../../invierno2026/carrousel/rider.png" alt=""></div>
+        <div class="c"><img src="../../../foto_producto/fotoproducto.png" alt=""></div>
+        <div class="c"><img src="../../../invierno2026/carrousel/hike.png" alt=""></div>
+        <div class="c t"><span>Reef<br>Safe</span></div>
+        <div class="c"><img src="../../../invierno2026/final.jpg" alt=""></div>
+        <div class="c"><img src="../../../invierno2026/carrousel/si4.png" alt=""></div>
+        <div class="c"><img src="../../../invierno2026/carrousel/real12.png" alt=""></div>
+        <div class="c t sg"><span>SPF 60<br>real</span></div>
+        <div class="c"><img src="../../../invierno2026/carrousel/fff.png" alt=""></div>
+      </div>
+    </div>
+    <div>
+      <ul class="iglist">
+        <li><b>Producto en contexto</b><span>la lata en uso real: mano, mochila, tabla, montaña</span></li>
+        <li><b>Lifestyle / rider</b><span>gente en movimiento</span></li>
+        <li><b>Educación honesta</b><span>reef safe, INCI, SPF real, cómo reaplicar</span></li>
+        <li><b>Naturaleza</b><span>respiro de feed, ADN outdoor</span></li>
+        <li><b>UGC / comunidad</b><span>repost con encuadre y grade de marca</span></li>
+      </ul>
+      <div class="fmt">
+        <div><span class="fk">Post cuadrado</span><span class="v">1080 × 1080</span></div>
+        <div><span class="fk">Post vertical</span><span class="v">1080 × 1350</span></div>
+        <div><span class="fk">Story / Reel</span><span class="v">1080 × 1920</span></div>
+        <div><span class="fk">Carrusel</span><span class="v">mismo preset</span></div>
+      </div>
+      <div class="bio"><span class="fk">Bio — draft</span>
+        Protección solar orgánica 🌿 Reef safe · SPF real<br>
+        Para pieles que viven afuera — montaña · playa · movimiento<br>
+        AR / UY
+      </div>
+    </div>
+  </div>
+  <div class="pf"><span>Selva Brava — Manual de Marca v2.0</span><span>11</span></div>
+</section>
+
+<!-- ═══ 10 WEB ═══ -->
+<section class="page">
+  <div class="ph"><span class="n">10</span><span class="t">Web</span></div>
+  <h2>Premium-natural desde el primer scroll</h2>
+  <p class="lead"><strong>selvabrava.org</strong> (en construcción). Aire Hueso/Crema, foto protagonista con preset de marca, claims verificables a la vista. Mobile-first.</p>
+  <div class="browser">
+    <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">selvabrava.org</span></div>
+    <div class="wh">
+      <img src="../../../invierno2026/carrousel/hike.png" alt="">
+      <div class="c">
+        <span class="fk" style="color:var(--salvia)">Organic Sun Care · Reef Safe</span>
+        <h3>Protección solar orgánica</h3>
+        <p class="sc">para pieles que viven afuera</p>
+        <p>100% orgánica, sin químicos sintéticos ni envoltorios plásticos.</p>
+        <a class="btn" href="#">Ver productos</a>
+      </div>
+    </div>
+    <div class="wp3">
+      <div><div class="bd" style="background:#A9B59D"></div><span class="fk">SPF 60 · Reef Safe</span><h4>Sunscreen</h4><p>Alta protección para condiciones exigentes.</p><span class="cta">Comprar →</span></div>
+      <div><div class="bd" style="background:#B97E6B"></div><span class="fk">SPF 20 · Labial</span><h4>Cacao Butter</h4><p>Labial protector para sol y frío.</p><span class="cta">Comprar →</span></div>
+      <div><div class="bd" style="background:#C3CAB8"></div><span class="fk">SPF 20 · Hidrata</span><h4>Moist</h4><p>Protección con hidratación diaria.</p><span class="cta">Comprar →</span></div>
+    </div>
+  </div>
+  <div class="toks">
+    <div class="tok"><div class="b" style="background:#FAF8F1"></div><div class="n">--bg</div><div class="v">#FAF8F1</div></div>
+    <div class="tok"><div class="b" style="background:#F6F4EC"></div><div class="n">--surface</div><div class="v">#F6F4EC</div></div>
+    <div class="tok"><div class="b" style="background:#DDE0DA"></div><div class="n">--border</div><div class="v">#DDE0DA</div></div>
+    <div class="tok"><div class="b" style="background:#4C6759"></div><div class="n">--brand</div><div class="v">#4C6759</div></div>
+    <div class="tok"><div class="b" style="background:#687978"></div><div class="n">--ink</div><div class="v">#687978</div></div>
+    <div class="tok"><div class="b" style="background:#1E2523"></div><div class="n">--ink-strong</div><div class="v">#1E2523</div></div>
+  </div>
+  <div class="pf"><span>Selva Brava — Manual de Marca v2.0</span><span>12</span></div>
+</section>
+
+<!-- ═══ 11 REGLAS ═══ -->
+<section class="page forest">
+  <div class="ph"><span class="n">11</span><span class="t">Reglas de oro</span></div>
+  <h2>Lo que siempre — y lo que nunca</h2>
+  <p class="lead">Una empresa se define tanto por lo que rechaza como por lo que crea. Innegociables en producto, comunicación y negocio.</p>
+  <div class="grid2">
+    <div class="rul si">
+      <h3>Siempre</h3>
+      <ol>
+        <li><span><b>Honestidad brutal.</b> Si algo no sirve, se dice. Si algo falla, se admite.</span></li>
+        <li><span><b>Proceso real.</b> Producción artesanal, materia prima, personas reales.</span></li>
+        <li><span><b>Evidencia.</b> SPF, ingredientes, impacto — nada sin base.</span></li>
+        <li><span><b>Cero plástico</b> en todo el ciclo: producto, packaging, envíos.</span></li>
+        <li><span><b>Criterio propio.</b> Invitar a pensar, no a seguir tendencias.</span></li>
+        <li><span><b>Largo plazo sobre hype.</b> Sin trends efímeros.</span></li>
+        <li><span><b>La naturaleza como socio.</b> Origen ético, trazable.</span></li>
+        <li><span><b>Cuidar a quien la elige.</b> Atención real, no marketing vacío.</span></li>
+      </ol>
+    </div>
+    <div class="rul no">
+      <h3>Nunca</h3>
+      <ol>
+        <li><span><b>Prometer milagros</b> — ni anti-edad ni garantías vacías.</span></li>
+        <li><span><b>Comparar con otras marcas</b> por nombre.</span></li>
+        <li><span><b>Modelos hipersexualizados</b> ni retocados.</span></li>
+        <li><span><b>Tendencias sin criterio.</b> Viral pero incoherente → se ignora.</span></li>
+        <li><span><b>Greenwashing</b> — solo acción verificable.</span></li>
+        <li><span><b>Urgencia falsa</b> — nada de "solo hoy".</span></li>
+        <li><span><b>Colaboraciones incoherentes</b>, por más plata que ofrezcan.</span></li>
+        <li><span><b>Ceder calidad por volumen.</b></span></li>
+        <li><span><b>Lenguaje corporativo</b> — hablar como personas.</span></li>
+        <li><span><b>Polémicas ajenas</b> — activismo ecológico, no ideológico.</span></li>
+      </ol>
+    </div>
+  </div>
+  <div class="pf"><span>Selva Brava — Manual de Marca v2.0</span><span>13</span></div>
+</section>
+
+<!-- ═══ CONTRAPORTADA ═══ -->
+<section class="page dark back">
+  <span class="mono-l" style="color:var(--salvia)">Selva Brava — Organic Sun Care</span>
+  <img class="mark" src="../01-logo/wordmark/horizontal/selva-brava_wordmark_horizontal_cream.png" alt="Selva Brava">
+  <div class="rows">
+    <div class="mono-l">IG @selva.brava<br>WhatsApp +598 99 814 711<br>selvabrava.org</div>
+    <div class="mono-l" style="text-align:right">Manual de Marca v2.0 — Julio 2026<br>Texto completo → manual-de-marca.md<br>Documento vivo</div>
+  </div>
+</section>
+
+</body>
+</html>

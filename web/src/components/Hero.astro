@@ -1,0 +1,97 @@
+---
+import wordmarkCream from '../assets/logo/wordmark-h-cream.svg';
+---
+
+<header
+  id="inicio"
+  class="relative flex min-h-svh flex-col overflow-hidden text-hueso"
+  style="background: radial-gradient(120% 90% at 50% 20%, #7F8D8B 0%, #687978 48%, #566462 100%);"
+>
+  <!-- Barra superior mínima -->
+  <nav class="relative z-20 flex items-center justify-between px-6 py-5 md:px-10">
+    <img src={wordmarkCream.src} alt="Selva Brava" class="w-36 md:w-44" />
+
+    <!-- Links desktop -->
+    <div class="hidden gap-8 font-display text-sm font-semibold uppercase tracking-[0.12em] md:flex">
+      <a href="#producto" class="text-hueso/80 transition-colors hover:text-hueso">Producto</a>
+      <a href="#historia" class="text-hueso/80 transition-colors hover:text-hueso">Historia</a>
+      <a href="#mision" class="text-hueso/80 transition-colors hover:text-hueso">Misión</a>
+      <a href="#contacto" class="text-hueso/80 transition-colors hover:text-hueso">Contacto</a>
+    </div>
+
+    <!-- Botón menú mobile -->
+    <button
+      type="button"
+      class="-mr-2 p-2 text-hueso md:hidden"
+      data-menu-btn
+      aria-label="Abrir menú"
+      aria-expanded="false"
+      aria-controls="menu-mobile"
+    >
+      <svg data-menu-open class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      <svg data-menu-close class="hidden h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </nav>
+
+  <!-- Panel menú mobile -->
+  <div id="menu-mobile" data-menu-panel class="relative z-10 hidden px-6 md:hidden">
+    <div class="flex flex-col border-t border-hueso/15 pt-2 font-display text-base font-semibold uppercase tracking-[0.14em]">
+      <a href="#producto" data-menu-link class="border-b border-hueso/10 py-3 text-hueso/85 transition-colors hover:text-hueso">Producto</a>
+      <a href="#historia" data-menu-link class="border-b border-hueso/10 py-3 text-hueso/85 transition-colors hover:text-hueso">Historia</a>
+      <a href="#mision" data-menu-link class="border-b border-hueso/10 py-3 text-hueso/85 transition-colors hover:text-hueso">Misión</a>
+      <a href="#contacto" data-menu-link class="py-3 text-hueso/85 transition-colors hover:text-hueso">Contacto</a>
+    </div>
+  </div>
+
+  <!-- Qué vendemos, primero. El espíritu, después. -->
+  <div class="relative z-10 flex flex-1 flex-col items-center justify-center px-6 text-center">
+    <p class="eyebrow mb-6 !text-salvia-200">Cosmética natural · Argentina — Uruguay</p>
+    <h1 class="h-display max-w-5xl text-5xl sm:text-6xl md:text-7xl lg:text-8xl">
+      Protección solar<br />
+      <span class="text-salvia-300">100% orgánica</span>
+    </h1>
+    <p class="mt-6 max-w-xl text-base leading-relaxed text-hueso/85 md:text-lg">
+      Protector solar SPF 60 con filtro mineral, sin químicos sintéticos ni envases
+      plásticos. Para uso diario y condiciones exigentes: montaña, playa, altura.
+    </p>
+    <a href="#producto" class="btn-primary mt-8 !bg-bosque !text-hueso hover:!bg-bosque-600">
+      Ver el producto
+    </a>
+    <p class="mt-10 max-w-md font-display text-sm font-semibold uppercase tracking-[0.18em] text-salvia-300/90 md:text-base">
+      Cuestionamos lo establecido y pensamos por nosotros mismos… desde ahí creamos.
+    </p>
+  </div>
+
+  <!-- Invitación a scroll -->
+  <a
+    href="#producto"
+    class="relative z-10 mx-auto mb-8 flex flex-col items-center gap-2 text-hueso/70 transition-colors hover:text-hueso"
+    aria-label="Bajar al producto"
+  >
+    <span class="eyebrow !text-inherit">Descubrir</span>
+    <svg class="chevron-float h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M6 9l6 6 6-6" />
+    </svg>
+  </a>
+</header>
+
+<script>
+  const btn = document.querySelector<HTMLButtonElement>('[data-menu-btn]');
+  const panel = document.querySelector<HTMLElement>('[data-menu-panel]');
+  const iconOpen = document.querySelector<SVGElement>('[data-menu-open]');
+  const iconClose = document.querySelector<SVGElement>('[data-menu-close]');
+
+  if (btn && panel && iconOpen && iconClose) {
+    const setOpen = (open: boolean) => {
+      panel.classList.toggle('hidden', !open);
+      iconOpen.classList.toggle('hidden', open);
+      iconClose.classList.toggle('hidden', !open);
+      btn.setAttribute('aria-expanded', String(open));
+      btn.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+    };
+    btn.addEventListener('click', () => setOpen(panel.classList.contains('hidden')));
+    document.querySelectorAll('[data-menu-link]').forEach((l) =>
+      l.addEventListener('click', () => setOpen(false))
+    );
+  }
+</script>

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <pattern id="tile" width="96" height="96" patternUnits="userSpaceOnUse">
+      <g fill="none" stroke="#DDE0DA" stroke-width="1.4">
+        <path d="M0 24 H96 M0 72 H96"/>
+        <path d="M24 0 C31 24 17 72 24 96"/>
+        <path d="M72 0 C65 24 79 72 72 96"/>
+      </g>
+    </pattern>
+  </defs>
+  <rect width="512" height="512" fill="url(#tile)"/>
+</svg>

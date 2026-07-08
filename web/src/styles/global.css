@@ -1,0 +1,124 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Base de marca ──────────────────────────────────── */
+html { scroll-behavior: smooth; }
+body {
+  @apply bg-hueso text-carbon font-body antialiased;
+}
+::selection { background: #a9b59d; color: #1e2523; }
+
+/* Grano fílmico global — ADN raw */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 90;
+  opacity: 0.045;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ── Utilidades editoriales ─────────────────────────── */
+@layer components {
+  .eyebrow {
+    @apply font-mono text-[0.66rem] uppercase tracking-eyebrow text-slate;
+  }
+  .eyebrow::before { content: "◆ "; color: #b97e6b; font-size: 0.55rem; }
+  .eyebrow-plain {
+    @apply font-mono text-[0.66rem] uppercase tracking-eyebrow;
+  }
+  .h-display {
+    @apply font-display font-bold uppercase leading-[0.92] tracking-[0.01em];
+  }
+  /* texto en contorno — momento display */
+  .txt-outline {
+    color: transparent;
+    -webkit-text-stroke: 1.5px currentColor;
+  }
+  /* número de capítulo gigante */
+  .cnum {
+    @apply pointer-events-none select-none font-display font-bold leading-none;
+    font-size: clamp(5rem, 14vw, 11rem);
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(30, 37, 35, 0.14);
+  }
+  .cnum-light { -webkit-text-stroke: 1px rgba(250, 248, 241, 0.16); }
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 bg-bosque text-hueso
+           font-display font-semibold uppercase tracking-[0.12em] text-sm
+           px-8 py-4 rounded-sm transition-all duration-200
+           hover:bg-bosque-600 hover:gap-3 focus-visible:outline focus-visible:outline-2
+           focus-visible:outline-offset-2 focus-visible:outline-bosque;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 border border-carbon/60 text-carbon
+           font-display font-semibold uppercase tracking-[0.12em] text-sm
+           px-8 py-4 rounded-sm transition-all duration-200
+           hover:bg-carbon hover:text-hueso hover:gap-3 focus-visible:outline focus-visible:outline-2
+           focus-visible:outline-offset-2 focus-visible:outline-carbon;
+  }
+  .btn-sage {
+    @apply inline-flex items-center justify-center gap-2 bg-salvia text-carbon
+           font-display font-bold uppercase tracking-[0.12em] text-sm
+           px-8 py-4 rounded-sm transition-all duration-200
+           hover:bg-salvia-300 hover:gap-3;
+  }
+}
+
+/* ── Reveal on scroll ───────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 0.8s cubic-bezier(0.2, 0.65, 0.2, 1),
+              transform 0.8s cubic-bezier(0.2, 0.65, 0.2, 1);
+}
+.reveal.is-visible { opacity: 1; transform: none; }
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+
+/* ── Entrada del hero (una sola orquestación) ───────── */
+@keyframes rise {
+  from { opacity: 0; transform: translateY(38px); }
+  to   { opacity: 1; transform: none; }
+}
+.rise   { animation: rise 1s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+.rise-1 { animation-delay: 0.15s; }
+.rise-2 { animation-delay: 0.3s; }
+.rise-3 { animation-delay: 0.45s; }
+.rise-4 { animation-delay: 0.6s; }
+
+/* ── Ticker marquee ─────────────────────────────────── */
+@keyframes tick { to { transform: translateX(-50%); } }
+.ticker-track {
+  display: flex;
+  width: max-content;
+  animation: tick 38s linear infinite;
+}
+.ticker-track:hover { animation-play-state: paused; }
+
+/* ── Badge girando ──────────────────────────────────── */
+@keyframes spin-slow { to { transform: rotate(360deg); } }
+.spin-slow { animation: spin-slow 90s linear infinite; }
+
+/* ── Chevron del hero ───────────────────────────────── */
+@keyframes float-down {
+  0%, 100% { transform: translateY(0); opacity: 0.85; }
+  50%      { transform: translateY(9px); opacity: 0.45; }
+}
+.chevron-float { animation: float-down 2.4s ease-in-out infinite; }
+
+/* ── Fotos: zoom sobrio al hover ────────────────────── */
+.ph-zoom { overflow: hidden; }
+.ph-zoom img { transition: transform 0.8s cubic-bezier(0.2, 0.6, 0.2, 1); }
+.ph-zoom:hover img { transform: scale(1.045); }
+
+/* ── Accesibilidad: sin movimiento ──────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .reveal, .rise { opacity: 1; transform: none; transition: none; animation: none; }
+  .ticker-track, .spin-slow, .chevron-float { animation: none; }
+  .ph-zoom img { transition: none; }
+  html { scroll-behavior: auto; }
+}

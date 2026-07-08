@@ -1,0 +1,450 @@
+---
+import { Image } from 'astro:assets';
+import fotoBeach from '../assets/images/producto/beach.webp';
+import fotoForest from '../assets/images/producto/forest.webp';
+import fotoSnow from '../assets/images/producto/snow1.webp';
+import fotoDisplay from '../assets/images/producto/display.webp';
+import fotoSnowSpecs from '../assets/images/producto/snow.webp';
+import selloSpf from '../assets/sellos/spf-60.svg';
+import selloReef from '../assets/sellos/reef-safe.svg';
+import selloOrganic from '../assets/sellos/organic.svg';
+
+const fotos = [
+  { src: fotoBeach, alt: 'Selva Brava Sunscreen SPF 60 en la orilla, tabla de surf y luz de atardecer' },
+  { src: fotoForest, alt: 'Selva Brava sobre musgo y helechos en el bosque húmedo' },
+  { src: fotoSnow, alt: 'Selva Brava en un refugio de montaña con antiparras, gorro y café, cordillera nevada al fondo' },
+  { src: fotoDisplay, alt: 'Selva Brava en flatlay con lavanda, eucalipto y peine de madera' },
+  { src: fotoSnowSpecs, alt: 'Ficha de características del Sunscreen SPF 60: FPS 60, resistente al agua, materias primas orgánicas' },
+];
+
+const WHATSAPP = 'https://wa.me/59899814711';
+const MERCADOLIBRE =
+  'https://www.mercadolibre.com.ar/up/MLAU2977910815?matt_tool=89488245&pdp_filters=item_id:MLA2002373762';
+
+// Fórmula declarada ante ANMAT (Res. M.S. y A.S. 155/98) — mismo orden del registro
+const ingredientes = [
+  ['Prunus Amygdalus Dulcis Oil', 'aceite de almendras'],
+  ['Zinc Oxide', 'óxido de zinc, filtro UV'],
+  ['Titanium Dioxide', 'dióxido de titanio, filtro UV'],
+  ['Theobroma Cacao', 'cacao'],
+  ['Simmondsia Chinensis Seed Oil', 'aceite de jojoba'],
+  ['Beeswax', 'cera de abeja'],
+  ['Butyrospermum Parkii Butter', 'manteca de karité'],
+  ['Cocos Nucifera Oil', 'aceite de coco'],
+  ['Theobroma Cacao Seed Butter', 'manteca de cacao'],
+  ['Curcuma Longa Root Powder', 'cúrcuma'],
+];
+---
+
+<section id="producto" class="bg-salvia-100 py-24 md:py-32">
+  <div class="mx-auto grid max-w-site items-start gap-12 px-6 md:grid-cols-2 md:gap-16 md:px-10">
+    <!-- Carrusel + sellos -->
+    <div class="md:sticky md:top-10">
+      <div class="reveal carousel" data-carousel>
+        <div class="carousel-track" data-track>
+          {fotos.map((f, i) => (
+            <figure class="carousel-slide">
+              <button
+                type="button"
+                class="carousel-zoom"
+                data-zoom
+                data-index={i}
+                data-full={f.src.src}
+                data-alt={f.alt}
+                aria-label={`Ampliar foto: ${f.alt}`}
+              >
+                <Image
+                  src={f.src}
+                  alt={f.alt}
+                  class="h-full w-full object-cover"
+                  widths={[600, 1200]}
+                  sizes="(min-width: 768px) 45vw, 90vw"
+                  loading={i === 0 ? 'eager' : 'lazy'}
+                />
+              </button>
+            </figure>
+          ))}
+        </div>
+
+        <button class="carousel-arrow carousel-prev" data-prev aria-label="Foto anterior">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6" /></svg>
+        </button>
+        <button class="carousel-arrow carousel-next" data-next aria-label="Foto siguiente">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6" /></svg>
+        </button>
+
+        <div class="carousel-dots" data-dots>
+          {fotos.map((_, i) => (
+            <button class="carousel-dot" data-dot={i} aria-label={`Ir a la foto ${i + 1}`}></button>
+          ))}
+        </div>
+      </div>
+
+      <div class="reveal reveal-delay-1 mt-6 flex items-center justify-center gap-6">
+        <img src={selloSpf.src} alt="Sello SPF 60, protección alta UVA + UVB" class="h-20 w-20 md:h-24 md:w-24" />
+        <img src={selloReef.src} alt="Sello Reef Safe, ocean friendly" class="h-20 w-20 md:h-24 md:w-24" />
+        <img src={selloOrganic.src} alt="Sello 100% Organic" class="h-20 w-20 md:h-24 md:w-24" />
+      </div>
+    </div>
+
+    <!-- Descripción -->
+    <div>
+      <p class="eyebrow reveal mb-4">El producto</p>
+      <h2 class="h-display reveal text-4xl text-carbon md:text-5xl">Sunscreen SPF 60</h2>
+      <p class="reveal mt-2 font-mono text-xs uppercase tracking-eyebrow text-slate">
+        Lata de 20 grs · UVA + UVB · Reef safe
+      </p>
+
+      <div class="mt-8 space-y-5 text-[1.05rem] leading-relaxed text-slate-800">
+        <p class="reveal">
+          Protector solar orgánico de alta protección, con filtros minerales de óxido
+          de zinc y dióxido de titanio. Formulado para uso diario y para condiciones exigentes:
+          montaña, playa, altura, exposición prolongada.
+        </p>
+        <p class="reveal reveal-delay-1">
+          Es multifuncional por diseño: protege, hidrata y suaviza la piel con la misma
+          fórmula. Sirve igual en la ciudad que arriba de la tabla o en el cerro.
+        </p>
+        <p class="reveal reveal-delay-1">
+          Lo que lo diferencia no es una promesa: es lo que no tiene. Sin filtros
+          químicos, sin conservantes sintéticos, sin envase plástico. Ingredientes que
+          se leen y se entienden.
+        </p>
+      </div>
+
+      <!-- Ingredientes -->
+      <div class="reveal reveal-delay-2 mt-10 border-t border-niebla pt-6">
+        <p class="eyebrow mb-4">Ingredientes — todos, no un resumen</p>
+        <ul class="grid gap-x-8 gap-y-2 font-mono text-[0.8rem] text-slate-700 sm:grid-cols-2">
+          {
+            ingredientes.map(([inci, comun]) => (
+              <li class="flex justify-between gap-3 border-b border-niebla/70 pb-2">
+                <span>{inci}</span>
+                <span class="text-slate-400">{comun}</span>
+              </li>
+            ))
+          }
+        </ul>
+        <p class="mt-4 font-mono text-[0.68rem] leading-relaxed text-slate-400">
+          Ensayos UVA · UVB · fototoxicidad · irritación dérmica realizados en laboratorio.
+        </p>
+      </div>
+
+      <!-- CTAs -->
+      <div class="reveal reveal-delay-2 mt-10 flex flex-col gap-4 sm:flex-row">
+        <a href={MERCADOLIBRE} class="btn-primary" target="_blank" rel="noopener">
+          Comprar en Mercado Libre
+        </a>
+        <a
+          href={`${WHATSAPP}?text=${encodeURIComponent('Hola! Quiero consultar por el Sunscreen SPF 60.')}`}
+          class="btn-secondary"
+          target="_blank"
+          rel="noopener"
+        >
+          Consultar por WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lightbox -->
+  <div class="lightbox" data-lightbox hidden>
+    <button class="lightbox-close" data-lb-close aria-label="Cerrar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <button class="lightbox-nav lightbox-prev" data-lb-prev aria-label="Foto anterior">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg>
+    </button>
+    <figure class="lightbox-figure">
+      <img class="lightbox-img" data-lb-img alt="" />
+      <figcaption class="lightbox-caption" data-lb-cap></figcaption>
+    </figure>
+    <button class="lightbox-nav lightbox-next" data-lb-next aria-label="Foto siguiente">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+    </button>
+  </div>
+</section>
+
+<style>
+  .carousel {
+    position: relative;
+    border-radius: 2px;
+    overflow: hidden;
+    background: #F6F4EC;
+    box-shadow: 0 14px 40px rgba(30, 37, 35, 0.12);
+  }
+  .carousel-track {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    aspect-ratio: 4 / 3;
+  }
+  .carousel-track::-webkit-scrollbar { display: none; }
+  .carousel-slide {
+    flex: 0 0 100%;
+    scroll-snap-align: center;
+    margin: 0;
+    height: 100%;
+  }
+  .carousel-slide :global(img) { display: block; height: 100%; width: 100%; object-fit: cover; }
+  .carousel-zoom {
+    display: block;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: none;
+    cursor: zoom-in;
+  }
+
+  .carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: grid;
+    place-items: center;
+    width: 2.6rem;
+    height: 2.6rem;
+    border-radius: 999px;
+    background: rgba(250, 248, 241, 0.86);
+    color: #1E2523;
+    border: none;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.25s ease, background 0.2s ease, transform 0.2s ease;
+    box-shadow: 0 4px 14px rgba(30, 37, 35, 0.18);
+  }
+  .carousel-arrow svg { width: 1.15rem; height: 1.15rem; }
+  .carousel-prev { left: 0.75rem; }
+  .carousel-next { right: 0.75rem; }
+  .carousel:hover .carousel-arrow,
+  .carousel:focus-within .carousel-arrow { opacity: 1; }
+  .carousel-arrow:hover { background: #FAF8F1; transform: translateY(-50%) scale(1.06); }
+  /* En touch las flechas quedan siempre visibles */
+  @media (hover: none) {
+    .carousel-arrow { opacity: 1; background: rgba(250, 248, 241, 0.75); }
+  }
+
+  .carousel-dots {
+    position: absolute;
+    bottom: 0.9rem;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  .carousel-dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 999px;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    background: rgba(250, 248, 241, 0.55);
+    box-shadow: 0 0 0 1px rgba(30, 37, 35, 0.15);
+    transition: background 0.25s ease, width 0.25s ease;
+  }
+  .carousel-dot[aria-current='true'] {
+    background: #FAF8F1;
+    width: 1.4rem;
+  }
+
+  /* ── Lightbox ─────────────────────────────── */
+  .lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: clamp(1rem, 4vw, 3rem);
+    background: rgba(20, 25, 23, 0.92);
+    backdrop-filter: blur(4px);
+    opacity: 0;
+    transition: opacity 0.28s ease;
+  }
+  .lightbox[hidden] { display: none; }
+  .lightbox.is-open { opacity: 1; }
+
+  .lightbox-figure {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.9rem;
+    max-width: min(92vw, 1200px);
+    max-height: 100%;
+  }
+  .lightbox-img {
+    max-width: 100%;
+    max-height: 82vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 2px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    transform: scale(0.96);
+    transition: transform 0.28s cubic-bezier(0.2, 0.65, 0.2, 1);
+  }
+  .lightbox.is-open .lightbox-img { transform: scale(1); }
+  .lightbox-caption {
+    font-family: "Space Mono", ui-monospace, monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: rgba(250, 248, 241, 0.7);
+    text-align: center;
+    max-width: 40rem;
+  }
+
+  .lightbox-close,
+  .lightbox-nav {
+    display: grid;
+    place-items: center;
+    border: none;
+    cursor: pointer;
+    color: #FAF8F1;
+    background: rgba(250, 248, 241, 0.12);
+    border-radius: 999px;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+  .lightbox-close:hover,
+  .lightbox-nav:hover { background: rgba(250, 248, 241, 0.25); }
+  .lightbox-close {
+    position: absolute;
+    top: clamp(0.8rem, 3vw, 1.5rem);
+    right: clamp(0.8rem, 3vw, 1.5rem);
+    width: 2.8rem;
+    height: 2.8rem;
+  }
+  .lightbox-close svg { width: 1.3rem; height: 1.3rem; }
+  .lightbox-nav {
+    flex: 0 0 auto;
+    width: 3rem;
+    height: 3rem;
+  }
+  .lightbox-nav svg { width: 1.4rem; height: 1.4rem; }
+  .lightbox-nav:hover { transform: scale(1.06); }
+
+  @media (max-width: 640px) {
+    .lightbox-nav {
+      position: absolute;
+      bottom: 1.2rem;
+    }
+    .lightbox-prev { left: 25%; }
+    .lightbox-next { right: 25%; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .lightbox, .lightbox-img { transition: none; }
+  }
+</style>
+
+<script>
+  function initCarousel(root: HTMLElement) {
+    const track = root.querySelector<HTMLElement>('[data-track]');
+    const dots = Array.from(root.querySelectorAll<HTMLButtonElement>('[data-dot]'));
+    const prev = root.querySelector<HTMLButtonElement>('[data-prev]');
+    const next = root.querySelector<HTMLButtonElement>('[data-next]');
+    if (!track) return;
+
+    const slides = () => Array.from(track.children) as HTMLElement[];
+    const current = () => Math.round(track.scrollLeft / track.clientWidth);
+    const count = slides().length;
+
+    const goTo = (i: number) => {
+      const idx = (i + count) % count;
+      track.scrollTo({ left: idx * track.clientWidth, behavior: 'smooth' });
+    };
+
+    const sync = () => {
+      const i = current();
+      dots.forEach((d, di) => d.setAttribute('aria-current', di === i ? 'true' : 'false'));
+    };
+
+    prev?.addEventListener('click', () => { goTo(current() - 1); pause(); });
+    next?.addEventListener('click', () => { goTo(current() + 1); pause(); });
+    dots.forEach((d, i) => d.addEventListener('click', () => { goTo(i); pause(); }));
+    track.addEventListener('scroll', () => window.requestAnimationFrame(sync), { passive: true });
+
+    // Autoplay suave, respetando reduced-motion
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let timer: number | undefined;
+    const play = () => {
+      if (reduce) return;
+      stop();
+      timer = window.setInterval(() => goTo(current() + 1), 5500);
+    };
+    const stop = () => { if (timer) window.clearInterval(timer); };
+    let resume: number | undefined;
+    const pause = () => { stop(); if (resume) window.clearTimeout(resume); resume = window.setTimeout(play, 9000); };
+
+    root.addEventListener('mouseenter', stop);
+    root.addEventListener('mouseleave', play);
+    root.addEventListener('focusin', stop);
+    root.addEventListener('focusout', play);
+    document.addEventListener('visibilitychange', () => (document.hidden ? stop() : play()));
+
+    sync();
+    play();
+  }
+
+  document.querySelectorAll<HTMLElement>('[data-carousel]').forEach(initCarousel);
+
+  // ── Lightbox ──────────────────────────────
+  function initLightbox() {
+    const lb = document.querySelector<HTMLElement>('[data-lightbox]');
+    const img = lb?.querySelector<HTMLImageElement>('[data-lb-img]');
+    const cap = lb?.querySelector<HTMLElement>('[data-lb-cap]');
+    if (!lb || !img || !cap) return;
+
+    const zooms = Array.from(document.querySelectorAll<HTMLButtonElement>('[data-zoom]'));
+    const items = zooms.map((z) => ({ full: z.dataset.full || '', alt: z.dataset.alt || '' }));
+    if (!items.length) return;
+
+    let i = 0;
+    let lastFocus: HTMLElement | null = null;
+
+    const render = () => {
+      img.src = items[i].full;
+      img.alt = items[i].alt;
+      cap.textContent = items[i].alt;
+    };
+    const open = (idx: number) => {
+      i = idx;
+      lastFocus = document.activeElement as HTMLElement;
+      render();
+      lb.hidden = false;
+      document.body.style.overflow = 'hidden';
+      requestAnimationFrame(() => lb.classList.add('is-open'));
+      lb.querySelector<HTMLButtonElement>('[data-lb-close]')?.focus();
+    };
+    const close = () => {
+      lb.classList.remove('is-open');
+      document.body.style.overflow = '';
+      const done = () => { lb.hidden = true; lb.removeEventListener('transitionend', done); };
+      lb.addEventListener('transitionend', done);
+      lastFocus?.focus();
+    };
+    const go = (d: number) => { i = (i + d + items.length) % items.length; render(); };
+
+    zooms.forEach((z, idx) => z.addEventListener('click', () => open(idx)));
+    lb.querySelector('[data-lb-close]')?.addEventListener('click', close);
+    lb.querySelector('[data-lb-prev]')?.addEventListener('click', () => go(-1));
+    lb.querySelector('[data-lb-next]')?.addEventListener('click', () => go(1));
+    lb.addEventListener('click', (e) => { if (e.target === lb) close(); });
+    document.addEventListener('keydown', (e) => {
+      if (lb.hidden) return;
+      if (e.key === 'Escape') close();
+      else if (e.key === 'ArrowLeft') go(-1);
+      else if (e.key === 'ArrowRight') go(1);
+    });
+  }
+
+  initLightbox();
+</script>

@@ -1,0 +1,74 @@
+---
+import { Image } from 'astro:assets';
+import nieve from '../assets/images/terreno-nieve.webp';
+import mar from '../assets/images/terreno-mar.webp';
+import yoga from '../assets/images/terreno-yoga.webp';
+import fogon from '../assets/images/terreno-fogon.webp';
+import manos from '../assets/images/terreno-manos.webp';
+import pista from '../assets/images/terreno-pista.webp';
+
+const fotos = [
+  {
+    img: nieve,
+    alt: 'Esquiadora aplicándose protector solar en la montaña',
+    caption: 'Altura — donde el sol pega el doble',
+  },
+  {
+    img: pista,
+    alt: 'Esquiadora mirando la cordillera nevada',
+    caption: 'Temporada — julio a septiembre',
+  },
+  {
+    img: manos,
+    alt: 'Manos abriendo la lata de Selva Brava en la nieve',
+    caption: '20 gramos, cero plástico',
+  },
+  {
+    img: mar,
+    alt: 'Lata de Selva Brava junto a una tabla de surf en la orilla',
+    caption: 'Mar — resistente al agua',
+  },
+  {
+    img: yoga,
+    alt: 'Práctica de yoga frente a la cordillera',
+    caption: 'Movimiento — cuerpo y montaña',
+  },
+  {
+    img: fogon,
+    alt: 'Grupo alrededor del fuego en la nieve',
+    caption: 'Comunidad — el después también cuenta',
+  },
+];
+---
+
+<section id="terreno" class="bg-niebla py-24 md:py-32">
+  <div class="mx-auto max-w-site px-6 md:px-10">
+  <p class="eyebrow reveal mb-4">El terreno</p>
+  <h2 class="h-display reveal max-w-2xl text-4xl text-carbon md:text-5xl">
+    Donde se prueba lo que hacemos
+  </h2>
+  <p class="reveal reveal-delay-1 mt-5 max-w-2xl text-[1.05rem] leading-relaxed text-slate-800">
+    Nieve, sal, viento, altura. El producto se formula en el laboratorio, pero se
+    prueba en condiciones reales — las mismas donde vive la gente que lo usa.
+  </p>
+
+  <div class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+    {
+      fotos.map((f, i) => (
+        <figure class={`reveal ${i % 3 === 1 ? 'reveal-delay-1' : i % 3 === 2 ? 'reveal-delay-2' : ''}`}>
+          <div class="overflow-hidden rounded-sm">
+            <Image
+              src={f.img}
+              alt={f.alt}
+              class="aspect-[4/3] w-full object-cover transition-transform duration-500 hover:scale-[1.03]"
+              widths={[600, 1200]}
+              sizes="(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 90vw"
+            />
+          </div>
+          <figcaption class="eyebrow mt-3 !text-slate-400">{f.caption}</figcaption>
+        </figure>
+      ))
+    }
+  </div>
+  </div>
+</section>

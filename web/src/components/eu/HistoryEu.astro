@@ -1,0 +1,52 @@
+---
+import { Image } from 'astro:assets';
+import historiaImg from '../../assets/images/historia.webp';
+import { ORIGIN_LINE } from '../../config/eu';
+---
+
+<section id="story" class="bg-terracota-300 py-24 md:py-32">
+  <div class="mx-auto grid max-w-site items-center gap-12 px-6 md:grid-cols-2 md:gap-16 md:px-10">
+    <div>
+      <p class="eyebrow reveal mb-4">The story</p>
+      <h2 class="h-display reveal text-4xl text-carbon md:text-5xl">
+        Ten years leading<br />by example
+      </h2>
+
+      <div class="mt-8 space-y-5 text-[1.05rem] leading-relaxed text-slate-800">
+        <p class="reveal">
+          Selva Brava starts from a simple question: why do we accept what we accept?
+          Why do we put things on our skin we'd never choose to put in our bodies?
+          Out of that question — and a lot of mountain, sea and common sense — came
+          what we are.
+        </p>
+        <p class="reveal reveal-delay-1">
+          We've been making mineral sunscreen for ten years. No synthetic filters.
+          No plastic packaging. No promises we can't back with evidence.
+        </p>
+        <p class="reveal reveal-delay-2">
+          {ORIGIN_LINE}. Natural cosmetics are our first ground for expression: where
+          we put into practice what we believe. Small-batch production, ingredients you
+          can read and understand, and a product built for real conditions — altitude,
+          snow, salt, long exposure.
+        </p>
+        <p class="reveal reveal-delay-2">
+          We don't chase trends. We believe a company is defined as much by what it
+          refuses as by what it creates. And we choose to create on our own judgement.
+        </p>
+      </div>
+    </div>
+
+    <figure class="reveal reveal-delay-1">
+      <Image
+        src={historiaImg}
+        alt="Turmeric, cacao, shea butter and herbs on raw linen"
+        class="w-full rounded-sm object-cover"
+        widths={[600, 1200]}
+        sizes="(min-width: 768px) 50vw, 100vw"
+      />
+      <figcaption class="eyebrow mt-3 !text-slate-400">
+        Turmeric, cacao, shea — the raw material, as it is
+      </figcaption>
+    </figure>
+  </div>
+</section>

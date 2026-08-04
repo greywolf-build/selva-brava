@@ -1,0 +1,142 @@
+---
+import '../styles/global.css';
+import { ORIGIN_LINE } from '../config/eu';
+
+interface Props {
+  title?: string;
+  description?: string;
+  /** Ruta canónica relativa, ej. '/eu/' o '/eu/coming-soon/'. */
+  canonical?: string;
+  /** Páginas de captura que no queremos indexadas. */
+  noindex?: boolean;
+}
+
+const {
+  title = 'Selva Brava — Natural mineral sun care',
+  description =
+    'Mineral sunscreen in a 20 g tin. No synthetic filters, no plastic packaging. ' +
+    ORIGIN_LINE + '. Launching soon in Europe.',
+  canonical = '/eu/',
+  noindex = false,
+} = Astro.props;
+
+const canonicalUrl = new URL(canonical, Astro.site ?? Astro.url);
+const ogImage = new URL('/og-image.png', Astro.site ?? Astro.url);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex, follow" />}
+
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="canonical" href={canonicalUrl} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:locale" content="en_GB" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Tipografía de marca: Barlow Condensed · Barlow · Caveat · Space Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600&family=Caveat:wght@600&family=Space+Mono:wght@400;700&display=swap"
+    />
+
+    <!--
+      ══════════════════════════════════════════════════════════════
+       ANALYTICS — puertas adentro. Nada de esto se ve en la web.
+      ══════════════════════════════════════════════════════════════
+
+       Hoy no hay proveedor conectado: los eventos se encolan en
+       window.sbEvents y no se envía nada a ningún lado.
+
+       PARA ACTIVARLO: descomentá UNO de los dos bloques de abajo.
+       No hay que tocar nada más — sbTrack() detecta el proveedor solo.
+
+       ── Opción A · Plausible (recomendado: sin cookies, sin banner
+          de consentimiento, cumple GDPR sin pedir permiso) ────────
+
+       <script defer data-domain="selvabrava.org"
+               src="https://plausible.io/js/script.tagged-events.js"></script>
+       <script is:inline>
+         window.plausible = window.plausible || function () {
+           (window.plausible.q = window.plausible.q || []).push(arguments);
+         };
+       </script>
+
+       ── Opción B · Google Analytics 4 ─────────────────────────────
+          OJO: GA4 usa cookies. En la UE necesitás banner de consentimiento
+          antes de cargarlo, o te comés el problema legal que esta landing
+          justamente busca evitar.
+
+       <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+       <script is:inline>
+         window.dataLayer = window.dataLayer || [];
+         function gtag(){ dataLayer.push(arguments); }
+         gtag('js', new Date());
+         gtag('config', 'G-XXXXXXXXXX');
+         window.gtag = gtag;
+       </script>
+
+      ══════════════════════════════════════════════════════════════
+    -->
+
+    <script is:inline>
+      // Cableado de eventos. Ya está enchufado a los botones:
+      //   buy_click      → clic en BUY (/eu)
+      //   email_captured → alta en la lista de espera (/eu/coming-soon)
+      //
+      // Funciona con o sin proveedor. Sin proveedor solo encola.
+      window.sbEvents = window.sbEvents || [];
+
+      window.sbTrack = function (name, props) {
+        window.sbEvents.push({ name: name, props: props || {}, at: Date.now() });
+
+        try {
+          // Plausible. Usa sendBeacon, así que el evento sobrevive
+          // a la navegación que dispara el propio clic.
+          if (typeof window.plausible === 'function') {
+            window.plausible(name, { props: props || {} });
+          }
+          // Google Analytics 4.
+          if (typeof window.gtag === 'function') {
+            window.gtag('event', name, props || {});
+          }
+        } catch (e) {
+          // Nunca romper la página por un fallo de analytics.
+        }
+      };
+    </script>
+  </head>
+  <body>
+    <slot />
+
+    <!-- Reveal sutil al hacer scroll — sin librerías -->
+    <script>
+      const io = new IntersectionObserver(
+        (entries) => {
+          for (const e of entries) {
+            if (e.isIntersecting) {
+              e.target.classList.add('is-visible');
+              io.unobserve(e.target);
+            }
+          }
+        },
+        { threshold: 0.12 }
+      );
+      document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+    </script>
+  </body>
+</html>

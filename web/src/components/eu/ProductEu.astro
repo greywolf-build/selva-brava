@@ -1,0 +1,435 @@
+---
+import { Image } from 'astro:assets';
+import fotoBeach from '../../assets/images/producto/beach.webp';
+import fotoForest from '../../assets/images/producto/forest.webp';
+import fotoSnow from '../../assets/images/producto/snow1.webp';
+import fotoDisplay from '../../assets/images/producto/display.webp';
+import selloReef from '../../assets/sellos/reef-safe.svg';
+import selloEarth from '../../assets/sellos/earth-friendly.svg';
+import { PRICE, SPF_LABEL, FORMULA_LABEL, FORMAT_LABEL } from '../../config/eu';
+
+// Nota: se excluye producto/snow.webp (ficha de características en español,
+// con "FPS 60" y "HABILITADO POR ANMAT") — claims argentinos, no van en la UE.
+const fotos = [
+  { src: fotoForest, alt: 'Selva Brava tin on moss and ferns in a damp forest' },
+  { src: fotoBeach, alt: 'Selva Brava tin at the shoreline with a surfboard at sunset' },
+  { src: fotoSnow, alt: 'Selva Brava tin in a mountain hut with goggles, beanie and coffee' },
+  { src: fotoDisplay, alt: 'Selva Brava tin in a flatlay with lavender, eucalyptus and a wooden comb' },
+];
+---
+
+<section id="product" class="bg-salvia-100 py-24 md:py-32">
+  <div class="mx-auto grid max-w-site items-start gap-12 px-6 md:grid-cols-2 md:gap-16 md:px-10">
+    <!-- Carrusel + sellos -->
+    <div class="md:sticky md:top-10">
+      <div class="reveal carousel" data-carousel>
+        <div class="carousel-track" data-track>
+          {fotos.map((f, i) => (
+            <figure class="carousel-slide">
+              <button
+                type="button"
+                class="carousel-zoom"
+                data-zoom
+                data-index={i}
+                data-full={f.src.src}
+                data-alt={f.alt}
+                aria-label={`Enlarge photo: ${f.alt}`}
+              >
+                <Image
+                  src={f.src}
+                  alt={f.alt}
+                  class="h-full w-full object-cover"
+                  widths={[600, 1200]}
+                  sizes="(min-width: 768px) 45vw, 90vw"
+                  loading={i === 0 ? 'eager' : 'lazy'}
+                />
+              </button>
+            </figure>
+          ))}
+        </div>
+
+        <button class="carousel-arrow carousel-prev" data-prev aria-label="Previous photo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6" /></svg>
+        </button>
+        <button class="carousel-arrow carousel-next" data-next aria-label="Next photo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6" /></svg>
+        </button>
+
+        <div class="carousel-dots" data-dots>
+          {fotos.map((_, i) => (
+            <button class="carousel-dot" data-dot={i} aria-label={`Go to photo ${i + 1}`}></button>
+          ))}
+        </div>
+      </div>
+
+      <!-- Sellos: solo los que no afirman SPF ni "100% organic" -->
+      <div class="reveal reveal-delay-1 mt-6 flex items-center justify-center gap-6">
+        <img src={selloReef.src} alt="Reef safe, ocean friendly" class="h-20 w-20 md:h-24 md:w-24" />
+        <img src={selloEarth.src} alt="Earth friendly, plastic free" class="h-20 w-20 md:h-24 md:w-24" />
+      </div>
+    </div>
+
+    <!-- Descripción -->
+    <div>
+      <p class="eyebrow reveal mb-4">The product</p>
+      <h2 class="h-display reveal text-4xl text-carbon md:text-5xl">Mineral Sunscreen</h2>
+      <p class="reveal mt-2 font-mono text-xs uppercase tracking-eyebrow text-slate">
+        {FORMAT_LABEL}
+      </p>
+
+      <div class="mt-8 space-y-5 text-[1.05rem] leading-relaxed text-slate-800">
+        <p class="reveal">
+          {SPF_LABEL}. A {FORMULA_LABEL.toLowerCase()} built on zinc oxide and titanium
+          dioxide — physical filters that sit on the skin and reflect UV rather than
+          being absorbed. Made for daily use and for demanding conditions: mountain,
+          sea, altitude, long exposure.
+        </p>
+        <p class="reveal reveal-delay-1">
+          Multifunctional by design: it protects, moisturises and softens with the same
+          formula. It works the same in the city as on a board or up on the mountain.
+        </p>
+        <p class="reveal reveal-delay-1">
+          What sets it apart isn't a promise — it's what's missing. No chemical filters,
+          no synthetic preservatives, no plastic packaging. Ingredients you can read
+          and understand.
+        </p>
+      </div>
+
+      <!-- Ingredientes -->
+      <div class="reveal reveal-delay-2 mt-10 border-t border-niebla pt-6">
+        <p class="eyebrow mb-3">Ingredients</p>
+        <p class="font-display text-2xl font-semibold uppercase tracking-display text-bosque-700 md:text-3xl">
+          Tropical oils, roots and minerals
+        </p>
+        <p class="mt-2 font-mono text-xs uppercase tracking-eyebrow text-slate">
+          {FORMULA_LABEL}
+        </p>
+        <p class="mt-4 font-mono text-[0.68rem] leading-relaxed text-slate-400">
+          Laboratory tested: UVA · UVB · phototoxicity · dermal irritation.
+        </p>
+      </div>
+
+      <!-- Precio + BUY -->
+      <div class="reveal reveal-delay-2 mt-10">
+        <div class="flex flex-wrap items-center gap-5">
+          <a href="/eu/coming-soon" class="btn-primary" data-buy>
+            Buy
+          </a>
+          <span class="font-display text-3xl font-bold tracking-display text-carbon">
+            {PRICE}
+          </span>
+        </div>
+        <p class="mt-4 font-mono text-[0.68rem] uppercase tracking-eyebrow text-slate-400">
+          Launching soon in Europe · Join the waiting list
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lightbox -->
+  <div class="lightbox" data-lightbox hidden>
+    <button class="lightbox-close" data-lb-close aria-label="Close">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <button class="lightbox-nav lightbox-prev" data-lb-prev aria-label="Previous photo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg>
+    </button>
+    <figure class="lightbox-figure">
+      <img class="lightbox-img" data-lb-img alt="" />
+      <figcaption class="lightbox-caption" data-lb-cap></figcaption>
+    </figure>
+    <button class="lightbox-nav lightbox-next" data-lb-next aria-label="Next photo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+    </button>
+  </div>
+</section>
+
+<style>
+  .carousel {
+    position: relative;
+    border-radius: 2px;
+    overflow: hidden;
+    background: #F6F4EC;
+    box-shadow: 0 14px 40px rgba(30, 37, 35, 0.12);
+  }
+  .carousel-track {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    aspect-ratio: 4 / 3;
+  }
+  .carousel-track::-webkit-scrollbar { display: none; }
+  .carousel-slide {
+    flex: 0 0 100%;
+    scroll-snap-align: center;
+    margin: 0;
+    height: 100%;
+  }
+  .carousel-slide :global(img) { display: block; height: 100%; width: 100%; object-fit: cover; }
+  .carousel-zoom {
+    display: block;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: none;
+    cursor: zoom-in;
+  }
+
+  .carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: grid;
+    place-items: center;
+    width: 2.6rem;
+    height: 2.6rem;
+    border-radius: 999px;
+    background: rgba(250, 248, 241, 0.86);
+    color: #1E2523;
+    border: none;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.25s ease, background 0.2s ease, transform 0.2s ease;
+    box-shadow: 0 4px 14px rgba(30, 37, 35, 0.18);
+  }
+  .carousel-arrow svg { width: 1.15rem; height: 1.15rem; }
+  .carousel-prev { left: 0.75rem; }
+  .carousel-next { right: 0.75rem; }
+  .carousel:hover .carousel-arrow,
+  .carousel:focus-within .carousel-arrow { opacity: 1; }
+  .carousel-arrow:hover { background: #FAF8F1; transform: translateY(-50%) scale(1.06); }
+  @media (hover: none) {
+    .carousel-arrow { opacity: 1; background: rgba(250, 248, 241, 0.75); }
+  }
+
+  .carousel-dots {
+    position: absolute;
+    bottom: 0.9rem;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  .carousel-dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 999px;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    background: rgba(250, 248, 241, 0.55);
+    box-shadow: 0 0 0 1px rgba(30, 37, 35, 0.15);
+    transition: background 0.25s ease, width 0.25s ease;
+  }
+  .carousel-dot[aria-current='true'] {
+    background: #FAF8F1;
+    width: 1.4rem;
+  }
+
+  /* ── Lightbox ─────────────────────────────── */
+  .lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: clamp(1rem, 4vw, 3rem);
+    background: rgba(20, 25, 23, 0.92);
+    backdrop-filter: blur(4px);
+    opacity: 0;
+    transition: opacity 0.28s ease;
+  }
+  .lightbox[hidden] { display: none; }
+  .lightbox.is-open { opacity: 1; }
+
+  .lightbox-figure {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.9rem;
+    max-width: min(92vw, 1200px);
+    max-height: 100%;
+  }
+  .lightbox-img {
+    max-width: 100%;
+    max-height: 82vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 2px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    transform: scale(0.96);
+    transition: transform 0.28s cubic-bezier(0.2, 0.65, 0.2, 1);
+  }
+  .lightbox.is-open .lightbox-img { transform: scale(1); }
+  .lightbox-caption {
+    font-family: "Space Mono", ui-monospace, monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: rgba(250, 248, 241, 0.7);
+    text-align: center;
+    max-width: 40rem;
+  }
+
+  .lightbox-close,
+  .lightbox-nav {
+    display: grid;
+    place-items: center;
+    border: none;
+    cursor: pointer;
+    color: #FAF8F1;
+    background: rgba(250, 248, 241, 0.12);
+    border-radius: 999px;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+  .lightbox-close:hover,
+  .lightbox-nav:hover { background: rgba(250, 248, 241, 0.25); }
+  .lightbox-close {
+    position: absolute;
+    top: clamp(0.8rem, 3vw, 1.5rem);
+    right: clamp(0.8rem, 3vw, 1.5rem);
+    width: 2.8rem;
+    height: 2.8rem;
+  }
+  .lightbox-close svg { width: 1.3rem; height: 1.3rem; }
+  .lightbox-nav {
+    flex: 0 0 auto;
+    width: 3rem;
+    height: 3rem;
+  }
+  .lightbox-nav svg { width: 1.4rem; height: 1.4rem; }
+  .lightbox-nav:hover { transform: scale(1.06); }
+
+  @media (max-width: 640px) {
+    .lightbox-nav {
+      position: absolute;
+      bottom: 1.2rem;
+    }
+    .lightbox-prev { left: 25%; }
+    .lightbox-next { right: 25%; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .lightbox, .lightbox-img { transition: none; }
+  }
+</style>
+
+<script>
+  function initCarousel(root: HTMLElement) {
+    const track = root.querySelector<HTMLElement>('[data-track]');
+    const dots = Array.from(root.querySelectorAll<HTMLButtonElement>('[data-dot]'));
+    const prev = root.querySelector<HTMLButtonElement>('[data-prev]');
+    const next = root.querySelector<HTMLButtonElement>('[data-next]');
+    if (!track) return;
+
+    const slides = () => Array.from(track.children) as HTMLElement[];
+    const current = () => Math.round(track.scrollLeft / track.clientWidth);
+    const count = slides().length;
+
+    const goTo = (i: number) => {
+      const idx = (i + count) % count;
+      track.scrollTo({ left: idx * track.clientWidth, behavior: 'smooth' });
+    };
+
+    const sync = () => {
+      const i = current();
+      dots.forEach((d, di) => d.setAttribute('aria-current', di === i ? 'true' : 'false'));
+    };
+
+    prev?.addEventListener('click', () => { goTo(current() - 1); pause(); });
+    next?.addEventListener('click', () => { goTo(current() + 1); pause(); });
+    dots.forEach((d, i) => d.addEventListener('click', () => { goTo(i); pause(); }));
+    track.addEventListener('scroll', () => window.requestAnimationFrame(sync), { passive: true });
+
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let timer: number | undefined;
+    const play = () => {
+      if (reduce) return;
+      stop();
+      timer = window.setInterval(() => goTo(current() + 1), 5500);
+    };
+    const stop = () => { if (timer) window.clearInterval(timer); };
+    let resume: number | undefined;
+    const pause = () => { stop(); if (resume) window.clearTimeout(resume); resume = window.setTimeout(play, 9000); };
+
+    root.addEventListener('mouseenter', stop);
+    root.addEventListener('mouseleave', play);
+    root.addEventListener('focusin', stop);
+    root.addEventListener('focusout', play);
+    document.addEventListener('visibilitychange', () => (document.hidden ? stop() : play()));
+
+    sync();
+    play();
+  }
+
+  document.querySelectorAll<HTMLElement>('[data-carousel]').forEach(initCarousel);
+
+  // ── Lightbox ──────────────────────────────
+  function initLightbox() {
+    const lb = document.querySelector<HTMLElement>('[data-lightbox]');
+    const img = lb?.querySelector<HTMLImageElement>('[data-lb-img]');
+    const cap = lb?.querySelector<HTMLElement>('[data-lb-cap]');
+    if (!lb || !img || !cap) return;
+
+    const zooms = Array.from(document.querySelectorAll<HTMLButtonElement>('[data-zoom]'));
+    const items = zooms.map((z) => ({ full: z.dataset.full || '', alt: z.dataset.alt || '' }));
+    if (!items.length) return;
+
+    let i = 0;
+    let lastFocus: HTMLElement | null = null;
+
+    const render = () => {
+      img.src = items[i].full;
+      img.alt = items[i].alt;
+      cap.textContent = items[i].alt;
+    };
+    const open = (idx: number) => {
+      i = idx;
+      lastFocus = document.activeElement as HTMLElement;
+      render();
+      lb.hidden = false;
+      document.body.style.overflow = 'hidden';
+      requestAnimationFrame(() => lb.classList.add('is-open'));
+      lb.querySelector<HTMLButtonElement>('[data-lb-close]')?.focus();
+    };
+    const close = () => {
+      lb.classList.remove('is-open');
+      document.body.style.overflow = '';
+      const done = () => { lb.hidden = true; lb.removeEventListener('transitionend', done); };
+      lb.addEventListener('transitionend', done);
+      lastFocus?.focus();
+    };
+    const go = (d: number) => { i = (i + d + items.length) % items.length; render(); };
+
+    zooms.forEach((z, idx) => z.addEventListener('click', () => open(idx)));
+    lb.querySelector('[data-lb-close]')?.addEventListener('click', close);
+    lb.querySelector('[data-lb-prev]')?.addEventListener('click', () => go(-1));
+    lb.querySelector('[data-lb-next]')?.addEventListener('click', () => go(1));
+    lb.addEventListener('click', (e) => { if (e.target === lb) close(); });
+    document.addEventListener('keydown', (e) => {
+      if (lb.hidden) return;
+      if (e.key === 'Escape') close();
+      else if (e.key === 'ArrowLeft') go(-1);
+      else if (e.key === 'ArrowRight') go(1);
+    });
+  }
+
+  initLightbox();
+
+  // ── Tracking: intención de compra ─────────
+  // El evento se dispara antes de navegar a /eu/coming-soon.
+  document.querySelectorAll<HTMLAnchorElement>('[data-buy]').forEach((el) => {
+    el.addEventListener('click', () => {
+      (window as any).sbTrack?.('buy_click', { location: 'product', price: 'EUR 50' });
+    });
+  });
+</script>

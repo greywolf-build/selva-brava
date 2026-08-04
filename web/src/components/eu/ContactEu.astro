@@ -1,0 +1,59 @@
+---
+import { INSTAGRAM, WHATSAPP } from '../../config/eu';
+
+// Sin Mercado Libre: no hay canal de compra europeo todavía.
+const canales = [
+  {
+    k: 'Instagram',
+    v: '@selva.brava',
+    href: INSTAGRAM,
+    nota: 'The day to day of the brand',
+  },
+  {
+    k: 'WhatsApp',
+    v: '+598 99 814 711',
+    href: WHATSAPP,
+    nota: 'Questions, answered by a person',
+  },
+  {
+    k: 'Waiting list',
+    v: 'Launching soon',
+    href: '/eu/coming-soon',
+    nota: 'Be first when we land in Europe',
+  },
+];
+---
+
+<section id="contact" class="bg-salvia-100 py-24 md:py-32">
+  <div class="mx-auto max-w-site px-6 md:px-10">
+  <p class="eyebrow reveal mb-4">Contact</p>
+  <h2 class="h-display reveal max-w-xl text-4xl text-carbon md:text-5xl">
+    Let's talk straight
+  </h2>
+  <p class="reveal reveal-delay-1 mt-4 max-w-xl text-[1.02rem] text-slate-800">
+    No bots. There's a person on the other side.
+  </p>
+
+  <div class="mt-12 grid gap-px overflow-hidden rounded-sm border border-niebla bg-niebla sm:grid-cols-3">
+    {
+      canales.map((c, i) => (
+        <a
+          href={c.href}
+          target={c.href.startsWith('http') ? '_blank' : undefined}
+          rel={c.href.startsWith('http') ? 'noopener' : undefined}
+          class={`reveal group bg-hueso p-7 transition-colors hover:bg-crema ${i === 1 ? 'reveal-delay-1' : i === 2 ? 'reveal-delay-2' : ''}`}
+        >
+          <span class="eyebrow !text-terracota">{c.k}</span>
+          <p class="mt-3 font-display text-2xl font-semibold uppercase tracking-display text-carbon">
+            {c.v}
+          </p>
+          <p class="mt-1 text-sm text-slate">{c.nota}</p>
+          <span class="mt-4 inline-block font-mono text-xs text-bosque transition-transform group-hover:translate-x-1">
+            →
+          </span>
+        </a>
+      ))
+    }
+  </div>
+  </div>
+</section>

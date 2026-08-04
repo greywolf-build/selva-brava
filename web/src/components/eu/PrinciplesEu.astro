@@ -1,0 +1,65 @@
+---
+const principles = [
+  {
+    n: 'Simplicity',
+    t: 'Few ingredients, only the necessary ones. If it adds nothing, it stays out.',
+  },
+  {
+    n: 'Multifunction',
+    t: 'One product that works in the city, on the mountain and at sea. By design.',
+  },
+  {
+    n: 'Honesty',
+    t: "If it isn't good for something, we say so. If something fails, we own it.",
+  },
+  {
+    n: 'Responsibility',
+    t: 'We take charge of the whole cycle: product, packaging, shipping.',
+  },
+  {
+    n: 'Ethics',
+    t: 'Ethically sourced, traceable ingredients. No exploitation.',
+  },
+  {
+    n: 'Ecology',
+    t: 'Zero plastic. Reef safe. Nature is a partner, not a resource.',
+  },
+  {
+    n: 'Conscious design',
+    t: 'Every decision has a reason. Nothing is there for show.',
+  },
+  {
+    n: 'Straight to the point',
+    t: 'No frills, no inflated promises. What you see is what there is.',
+  },
+  {
+    n: 'Love',
+    t: 'For nature, animals and people. That order is how we got here.',
+  },
+];
+---
+
+<section id="principles" class="bg-crema py-24 md:py-32">
+  <div class="mx-auto max-w-site px-6 md:px-10">
+    <p class="eyebrow reveal mb-4">Principles</p>
+    <h2 class="h-display reveal max-w-xl text-4xl text-carbon md:text-5xl">
+      What guides us
+    </h2>
+
+    <div class="mt-14 grid gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        principles.map((p, i) => (
+          <div class={`reveal border-t-2 border-carbon pt-5 ${i % 3 === 1 ? 'reveal-delay-1' : i % 3 === 2 ? 'reveal-delay-2' : ''}`}>
+            <span class="font-mono text-[0.62rem] uppercase tracking-eyebrow text-terracota">
+              {String(i + 1).padStart(2, '0')}
+            </span>
+            <h3 class="mt-2 font-display text-2xl font-semibold uppercase tracking-display text-bosque-700">
+              {p.n}
+            </h3>
+            <p class="mt-2 text-[0.95rem] leading-relaxed text-slate-800">{p.t}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

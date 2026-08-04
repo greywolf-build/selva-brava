@@ -1,0 +1,60 @@
+---
+import wordmarkCream from '../../assets/logo/wordmark-h-cream.svg';
+import { INSTAGRAM, WHATSAPP, ORIGIN_LINE } from '../../config/eu';
+
+const year = new Date().getFullYear();
+
+const enlaces = [
+  ['Product', '#product'],
+  ['Story', '#story'],
+  ['Mission', '#mission'],
+  ['Contact', '#contact'],
+];
+---
+
+<footer
+  class="px-6 py-16 text-hueso md:px-10"
+  style="background: radial-gradient(120% 140% at 50% 0%, #7F8D8B 0%, #687978 48%, #566462 100%);"
+>
+  <div class="mx-auto max-w-site">
+    <div class="flex flex-col gap-10 md:flex-row md:items-end md:justify-between">
+      <div>
+        <img src={wordmarkCream.src} alt="Selva Brava" class="w-48" loading="lazy" />
+        <p class="mt-5 max-w-xs font-mono text-[0.7rem] leading-relaxed text-hueso/75">
+          We question what's established and think for ourselves… that's where we create from.
+        </p>
+      </div>
+
+      <nav class="flex flex-wrap gap-x-8 gap-y-3 font-display text-sm font-semibold uppercase tracking-[0.12em]">
+        {enlaces.map(([t, href]) => (
+          <a href={href} class="text-hueso/85 transition-colors hover:text-hueso">{t}</a>
+        ))}
+      </nav>
+
+      <div class="flex gap-5">
+        <!-- Instagram -->
+        <a href={INSTAGRAM} target="_blank" rel="noopener" aria-label="Selva Brava on Instagram"
+           class="text-hueso/85 transition-colors hover:text-hueso">
+          <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="5" />
+            <circle cx="12" cy="12" r="4" />
+            <circle cx="17.2" cy="6.8" r="0.6" fill="currentColor" stroke="none" />
+          </svg>
+        </a>
+        <!-- WhatsApp -->
+        <a href={WHATSAPP} target="_blank" rel="noopener" aria-label="Selva Brava on WhatsApp"
+           class="text-hueso/85 transition-colors hover:text-hueso">
+          <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 11.5a8.5 8.5 0 0 1-12.4 7.5L4 20l1-4.4A8.5 8.5 0 1 1 21 11.5Z" />
+            <path d="M9.3 9.2c.2 1.9 3.2 4.6 5.2 5l1.2-1.2-2-1.2-.8.6c-.8-.4-1.7-1.3-2.1-2l.6-.9-1.2-1.9-.9 1.6Z" fill="currentColor" stroke="none" />
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="mt-12 flex flex-col gap-2 border-t border-hueso/20 pt-6 font-mono text-[0.66rem] uppercase tracking-eyebrow text-hueso/65 md:flex-row md:justify-between">
+      <span>© {year} Selva Brava — {ORIGIN_LINE}</span>
+      <span>Natural Sun Care · Earth Friendly · Reef Safe</span>
+    </div>
+  </div>
+</footer>

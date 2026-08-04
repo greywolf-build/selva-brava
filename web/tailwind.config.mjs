@@ -27,7 +27,9 @@ export default {
         },
       },
       fontFamily: {
-        display: ['"Barlow Condensed"', 'Barlow', 'Arial', 'sans-serif'],
+        // 'Arial Narrow' de fallback: si Google Fonts no carga (Brave con
+        // shields agresivo, movil sin datos), el titular no se ensancha.
+        display: ['"Barlow Condensed"', '"Arial Narrow"', 'Barlow', 'Arial', 'sans-serif'],
         body:    ['Barlow', 'Helvetica', 'Arial', 'sans-serif'],
         script:  ['Caveat', 'cursive'],
         mono:    ['"Space Mono"', 'ui-monospace', 'Menlo', 'monospace'],

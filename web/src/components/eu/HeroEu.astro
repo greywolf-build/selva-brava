@@ -5,7 +5,7 @@ import { ORIGIN_TAGLINE, FORMULA_LABEL, SPF_LABEL } from '../../config/eu';
 
 <header
   id="top"
-  class="relative flex min-h-svh flex-col overflow-hidden text-hueso"
+  class="hero-full relative flex flex-col overflow-hidden text-hueso"
   style="background: radial-gradient(120% 90% at 50% 20%, #7F8D8B 0%, #687978 48%, #566462 100%);"
 >
   <!-- Barra superior mínima -->
@@ -47,7 +47,7 @@ import { ORIGIN_TAGLINE, FORMULA_LABEL, SPF_LABEL } from '../../config/eu';
   <!-- Qué vendemos, primero. El espíritu, después. -->
   <div class="relative z-10 flex flex-1 flex-col items-center justify-center px-6 text-center">
     <p class="eyebrow mb-6 !text-salvia-200">{ORIGIN_TAGLINE}</p>
-    <h1 class="h-display max-w-5xl text-5xl sm:text-6xl md:text-7xl lg:text-8xl">
+    <h1 class="h-display titulo-hero max-w-5xl">
       Sun Protection,<br />
       <span class="text-salvia-300">No Chemicals</span>
     </h1>
@@ -75,6 +75,50 @@ import { ORIGIN_TAGLINE, FORMULA_LABEL, SPF_LABEL } from '../../config/eu';
     </svg>
   </a>
 </header>
+
+<style>
+  /* Alto completo. svh evita el salto por la barra de URL del movil, pero
+     no existe en Android/iOS viejos: ahi cae a vh, que funciona igual. */
+  .hero-full {
+    min-height: 100vh;
+    min-height: 100svh;
+  }
+
+  /* Respeta el notch en iPhone (el fondo sigue a sangre completa). */
+  .hero-full > nav {
+    padding-left: max(1.5rem, env(safe-area-inset-left));
+    padding-right: max(1.5rem, env(safe-area-inset-right));
+  }
+  @media (min-width: 768px) {
+    .hero-full > nav {
+      padding-left: max(2.5rem, env(safe-area-inset-left));
+      padding-right: max(2.5rem, env(safe-area-inset-right));
+    }
+  }
+
+  /* Tipografia fluida en vez de saltos por breakpoint: nunca se desborda,
+     ni siquiera si Google Fonts no carga y cae a una fuente mas ancha. */
+  .titulo-hero {
+    font-size: clamp(2.1rem, 10.5vw, 6.5rem);
+    overflow-wrap: break-word;
+  }
+  @media (min-width: 1024px) {
+    .titulo-hero { font-size: clamp(4.5rem, 8vw, 8rem); }
+  }
+
+  /* Area tactil de los links: el texto mide 20px de alto, muy poco para
+     el dedo. El padding la lleva a ~44px sin mover el diseño. */
+  .hero-full nav a,
+  .hero-full [data-menu-link] {
+    padding-top: 0.7rem;
+    padding-bottom: 0.7rem;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .hero-full [data-menu-link] {
+    padding-top: 0.85rem;
+    padding-bottom: 0.85rem;
+  }
+</style>
 
 <script>
   const btn = document.querySelector<HTMLButtonElement>('[data-menu-btn]');

@@ -1,0 +1,10 @@
+# Netlify redirects — Selva Brava
+#
+# La home (/) es la versión europea. La versión argentina quedó apartada:
+#   /ar      → portal en español (botón Entrar)
+#   /inicio  → landing argentina completa (Mercado Libre, SPF 60)
+# Ninguna de las dos está enlazada desde la home.
+
+# Rutas /eu de la primera versión, por si quedó algún link dando vueltas.
+/eu                /              301
+/eu/coming-soon    /coming-soon   301

@@ -1,27 +1,27 @@
 ---
-import LayoutEu from '../../layouts/LayoutEu.astro';
-import wordmarkCream from '../../assets/logo/wordmark-h-cream.svg';
-import grano from '../../assets/images/grano-carbon.jpg';
+import LayoutEu from '../layouts/LayoutEu.astro';
+import wordmarkCream from '../assets/logo/wordmark-h-cream.svg';
+import grano from '../assets/images/grano-carbon.jpg';
 import {
   FORMSPREE_ENDPOINT,
   WAITLIST_INCENTIVE,
   WAITLIST_CONFIRMATION,
   ORIGIN_LINE,
   PRICE,
-} from '../../config/eu';
+} from '../config/eu';
 ---
 
 <LayoutEu
   title="Selva Brava — Launching soon in Europe"
   description="Selva Brava is landing in Europe. Join the waiting list: be the first to get it, plus 15% off at launch."
-  canonical="/eu/coming-soon/"
+  canonical="/coming-soon/"
   noindex={true}
 >
   <section class="portal">
     <div class="grano" style={`background-image:url(${grano.src});`}></div>
 
     <div class="contenido">
-      <a href="/eu" class="volver">
+      <a href="/" class="volver">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M19 12H5" /><path d="M11 18l-6-6 6-6" />
         </svg>
@@ -52,7 +52,7 @@ import {
           <!-- Honeypot anti-spam: invisible para personas, tentador para bots -->
           <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" class="gotcha" />
           <input type="hidden" name="_subject" value="Selva Brava EU — new waiting list signup" />
-          <input type="hidden" name="source" value="/eu/coming-soon" />
+          <input type="hidden" name="source" value="/coming-soon" />
 
           <label for="email" class="sr-only">Your email</label>
           <input

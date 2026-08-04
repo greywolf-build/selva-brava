@@ -1,135 +1,28 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import wordmark from '../assets/logo/wordmark-v-cream.svg';
-import isotipo from '../assets/logo/isotipo-salvia.svg';
-import grano from '../assets/images/grano-carbon.jpg';
+// Selva Brava — Europa. Esta es la home de selvabrava.org.
+// La versión argentina quedó apartada en /ar (portal) y /inicio (landing).
+import LayoutEu from '../layouts/LayoutEu.astro';
+import HeroEu from '../components/eu/HeroEu.astro';
+import HistoryEu from '../components/eu/HistoryEu.astro';
+import PrinciplesEu from '../components/eu/PrinciplesEu.astro';
+import ProductEu from '../components/eu/ProductEu.astro';
+import MissionEu from '../components/eu/MissionEu.astro';
+import TerrainEu from '../components/eu/TerrainEu.astro';
+import WholesaleEu from '../components/eu/WholesaleEu.astro';
+import ContactEu from '../components/eu/ContactEu.astro';
+import FooterEu from '../components/eu/FooterEu.astro';
 ---
 
-<Layout title="Selva Brava — Protección solar orgánica">
-  <section class="portal">
-    <div class="grano" style={`background-image:url(${grano.src});`}></div>
-
-    <div class="contenido">
-      <div class="marca anim" style="--d:0.1s">
-        <img src={isotipo.src} alt="" class="halo" width="520" height="520" />
-        <img src={wordmark.src} alt="Selva Brava" class="wordmark" width="360" height="352" />
-      </div>
-
-      <p class="linea anim" style="--d:0.4s">
-        Protección solar orgánica
-      </p>
-
-      <a href="/inicio" class="cta anim" style="--d:0.6s">
-        Entrar
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M5 12h14" /><path d="M13 6l6 6-6 6" />
-        </svg>
-      </a>
-    </div>
-  </section>
-</Layout>
-
-<style>
-  .portal {
-    position: relative;
-    min-height: 100svh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    /* Slate teal — tinta principal de la paleta */
-    background: radial-gradient(115% 90% at 50% 22%, #7F8D8B 0%, #687978 48%, #566462 100%);
-    isolation: isolate;
-  }
-
-  .grano {
-    position: absolute;
-    inset: 0;
-    background-size: cover;
-    background-position: center;
-    opacity: 0.35;
-    mix-blend-mode: soft-light;
-    pointer-events: none;
-  }
-
-  .contenido {
-    position: relative;
-    z-index: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 2rem;
-    padding: 2rem;
-  }
-
-  /* Isotipo grande de fondo + wordmark centrado = badge vectorizado */
-  .marca {
-    position: relative;
-    display: grid;
-    place-items: center;
-    width: clamp(300px, 80vw, 520px);
-    aspect-ratio: 1;
-  }
-  .halo {
-    grid-area: 1 / 1;
-    width: 100%;
-    height: auto;
-    opacity: 0.62;
-    animation: spin 140s linear infinite;
-  }
-  .wordmark {
-    grid-area: 1 / 1;
-    position: relative;
-    z-index: 1;
-    width: 52%;
-    height: auto;
-    filter: drop-shadow(0 6px 22px rgba(30, 37, 35, 0.35));
-  }
-
-  .linea {
-    font-family: "Space Mono", ui-monospace, monospace;
-    font-size: clamp(0.68rem, 1.8vw, 0.8rem);
-    text-transform: uppercase;
-    letter-spacing: 0.24em;
-    color: rgba(250, 248, 241, 0.82);   /* hueso */
-    margin: 0;
-  }
-
-  .cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.6rem;
-    background: #4C6759;                 /* bosque — verde firma / CTA */
-    color: #FAF8F1;                      /* hueso */
-    font-family: "Barlow Condensed", sans-serif;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    font-size: 1rem;
-    padding: 0.9rem 2.6rem;
-    border-radius: 2px;
-    text-decoration: none;
-    transition: background 0.25s ease, gap 0.25s ease, transform 0.25s ease;
-    box-shadow: 0 10px 28px rgba(30, 37, 35, 0.25);
-  }
-  .cta svg { width: 1.05rem; height: 1.05rem; }
-  .cta:hover { background: #435A4E; gap: 0.95rem; transform: translateY(-2px); }
-  .cta:focus-visible { outline: 2px solid #FAF8F1; outline-offset: 3px; }
-
-  .anim {
-    opacity: 0;
-    transform: translateY(14px);
-    animation: rise 0.9s cubic-bezier(0.2, 0.65, 0.2, 1) forwards;
-    animation-delay: var(--d, 0s);
-  }
-  @keyframes rise { to { opacity: 1; transform: none; } }
-
-  /* La rotación lenta del halo respeta el fade-in del contenedor */
-  @keyframes spin { to { transform: rotate(360deg); } }
-
-  @media (prefers-reduced-motion: reduce) {
-    .anim { animation: none; opacity: 1; transform: none; }
-    .halo { animation: none; }
-  }
-</style>
+<LayoutEu canonical="/">
+  <HeroEu />
+  <main>
+    <ProductEu />
+    <HistoryEu />
+    <PrinciplesEu />
+    <MissionEu />
+    <TerrainEu />
+    <WholesaleEu />
+    <ContactEu />
+  </main>
+  <FooterEu />
+</LayoutEu>

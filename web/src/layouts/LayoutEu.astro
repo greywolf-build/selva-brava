@@ -5,7 +5,7 @@ import { ORIGIN_LINE } from '../config/eu';
 interface Props {
   title?: string;
   description?: string;
-  /** Ruta canónica relativa, ej. '/eu/' o '/eu/coming-soon/'. */
+  /** Ruta canónica relativa, ej. '/' o '/coming-soon/'. */
   canonical?: string;
   /** Páginas de captura que no queremos indexadas. */
   noindex?: boolean;
@@ -16,7 +16,7 @@ const {
   description =
     'Mineral sunscreen in a 20 g tin. No synthetic filters, no plastic packaging. ' +
     ORIGIN_LINE + '. Launching soon in Europe.',
-  canonical = '/eu/',
+  canonical = '/',
   noindex = false,
 } = Astro.props;
 
